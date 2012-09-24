@@ -1,0 +1,13 @@
+Esto es realmente los ejecutables de pinguino
+
+
+wget http://gforge.enseeiht.fr/frs/download.php/3187/docker-1.2.tar.bz2
+tar -xf docker-1.2.tar.bz2
+
+cd docker-1.2
+./configure
+make all
+make install
+
+apt-get install gputils
+apt-get install sdcc

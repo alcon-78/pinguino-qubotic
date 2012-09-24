@@ -1,0 +1,2 @@
+../tools/bin/sdcc -mpic16 -optimize-goto -denable-peeps -obanksel=9 -opt-code-size -optimize-cmp -optimize-df -fstack -p18f2550 -I ../tools/share/sdcc/include/ -I ../include/ -c -c -o main.o main.c
+../tools/bin/sdcc -o main.hex -optimize-goto -denable-peeps -obanksel=9, -opt-code-size -optimize-cmp -optimize-df -fstack -no-crt -Wl-s../lkr/18f2550.lkr,-m -mpic16 -p18f2550 -l ../lib/libpuf.lib -llibio18f2550.lib -llibc18f.lib ../obj/application_iface.o ../obj/usb_descriptors.o ../obj/crt0ipinguino.o main.o

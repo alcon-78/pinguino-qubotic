@@ -1,0 +1,3084 @@
+gplink-0.13.7 beta
+Copyright (c) 1998-2005 gputils project
+Listing File Generated: 9-20-2012  19:19:21
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SDCC : free open source ANSI-C Compiler
+                                           ; Version 2.9.0 #5416 (Aug  9 2009) (UNIX)
+                                           ; This file was generated Thu Sep 20 19:19:21 2012
+                                           ;--------------------------------------------------------
+                                           ; PIC16 port for the Microchip 16-bit core micros
+                                           ;--------------------------------------------------------
+                                           	list	p=18f2550
+                                           
+                                           	radix dec
+                                           
+                                           ;--------------------------------------------------------
+                                           ; public variables in this module
+                                           ;--------------------------------------------------------
+                                           	global _N
+                                           	global _loopvar
+                                           	global _phase
+                                           	global _needreordering
+                                           	global _timingindex
+                                           	global _timedivision
+                                           	global _timings
+                                           	global _activatedservos
+                                           	global _servovalues
+                                           	global _digitalwrite
+                                           	global _digitalread
+                                           	global _pinmode
+                                           	global _servos_init
+                                           	global _ServoAttach
+                                           	global _ServoDetach
+                                           	global _ServoWrite
+                                           	global _ServoRead
+                                           	global _ServoMinimumPulse
+                                           	global _ServoMaximumPulse
+                                           	global _servos_interrupt
+                                           	global _Delayms
+                                           	global _Delayus
+                                           	global _epap_in
+                                           	global _epap_out
+                                           	global _epapin_init
+                                           	global _epapout_init
+                                           	global _setup
+                                           	global _adelante
+                                           	global _atras
+                                           	global _izquierda
+                                           	global _derecha
+                                           	global _loop
+                                           	global _pinguino_main
+                                           	global _high_priority_isr
+                                           	global _low_priority_isr
+                                           	global _mask
+                                           	global _port
+                                           	global _servomasks
+                                           
+                                           ;--------------------------------------------------------
+                                           ; extern variables in this module
+                                           ;--------------------------------------------------------
+                                           	extern _SPPDATAbits
+                                           	extern _SPPCFGbits
+                                           	extern _SPPEPSbits
+                                           	extern _SPPCONbits
+                                           	extern _UFRMLbits
+                                           	extern _UFRMHbits
+                                           	extern _UIRbits
+                                           	extern _UIEbits
+                                           	extern _UEIRbits
+                                           	extern _UEIEbits
+                                           	extern _USTATbits
+                                           	extern _UCONbits
+                                           	extern _UADDRbits
+                                           	extern _UCFGbits
+                                           	extern _UEP0bits
+                                           	extern _UEP1bits
+                                           	extern _UEP2bits
+                                           	extern _UEP3bits
+                                           	extern _UEP4bits
+                                           	extern _UEP5bits
+                                           	extern _UEP6bits
+                                           	extern _UEP7bits
+                                           	extern _UEP8bits
+                                           	extern _UEP9bits
+                                           	extern _UEP10bits
+                                           	extern _UEP11bits
+                                           	extern _UEP12bits
+                                           	extern _UEP13bits
+                                           	extern _UEP14bits
+                                           	extern _UEP15bits
+                                           	extern _PORTAbits
+                                           	extern _PORTBbits
+                                           	extern _PORTCbits
+                                           	extern _PORTDbits
+                                           	extern _PORTEbits
+                                           	extern _LATAbits
+                                           	extern _LATBbits
+                                           	extern _LATCbits
+                                           	extern _LATDbits
+                                           	extern _LATEbits
+                                           	extern _TRISAbits
+                                           	extern _TRISBbits
+                                           	extern _TRISCbits
+                                           	extern _TRISDbits
+                                           	extern _TRISEbits
+                                           	extern _OSCTUNEbits
+                                           	extern _PIE1bits
+                                           	extern _PIR1bits
+                                           	extern _IPR1bits
+                                           	extern _PIE2bits
+                                           	extern _PIR2bits
+                                           	extern _IPR2bits
+                                           	extern _EECON1bits
+                                           	extern _RCSTAbits
+                                           	extern _TXSTAbits
+                                           	extern _T3CONbits
+                                           	extern _CMCONbits
+                                           	extern _CVRCONbits
+                                           	extern _ECCP1ASbits
+                                           	extern _ECCP1DELbits
+                                           	extern _BAUDCONbits
+                                           	extern _CCP2CONbits
+                                           	extern _CCP1CONbits
+                                           	extern _ADCON2bits
+                                           	extern _ADCON1bits
+                                           	extern _ADCON0bits
+                                           	extern _SSPCON2bits
+                                           	extern _SSPCON1bits
+                                           	extern _SSPSTATbits
+                                           	extern _T2CONbits
+                                           	extern _T1CONbits
+                                           	extern _RCONbits
+                                           	extern _WDTCONbits
+                                           	extern _HLVDCONbits
+                                           	extern _OSCCONbits
+                                           	extern _T0CONbits
+                                           	extern _STATUSbits
+                                           	extern _FSR2Hbits
+                                           	extern _BSRbits
+                                           	extern _FSR1Hbits
+                                           	extern _FSR0Hbits
+                                           	extern _INTCON3bits
+                                           	extern _INTCON2bits
+                                           	extern _INTCONbits
+                                           	extern _TBLPTRUbits
+                                           	extern _PCLATHbits
+                                           	extern _PCLATUbits
+                                           	extern _STKPTRbits
+                                           	extern _TOSUbits
+                                           	extern _usb_device_state
+                                           	extern _usb_active_cfg
+                                           	extern _usb_active_alt_setting
+                                           	extern _SPPDATA
+                                           	extern _SPPCFG
+                                           	extern _SPPEPS
+                                           	extern _SPPCON
+                                           	extern _UFRML
+                                           	extern _UFRMH
+                                           	extern _UIR
+                                           	extern _UIE
+                                           	extern _UEIR
+                                           	extern _UEIE
+                                           	extern _USTAT
+                                           	extern _UCON
+                                           	extern _UADDR
+                                           	extern _UCFG
+                                           	extern _UEP0
+                                           	extern _UEP1
+                                           	extern _UEP2
+                                           	extern _UEP3
+                                           	extern _UEP4
+                                           	extern _UEP5
+                                           	extern _UEP6
+                                           	extern _UEP7
+                                           	extern _UEP8
+                                           	extern _UEP9
+                                           	extern _UEP10
+                                           	extern _UEP11
+                                           	extern _UEP12
+                                           	extern _UEP13
+                                           	extern _UEP14
+                                           	extern _UEP15
+                                           	extern _PORTA
+                                           	extern _PORTB
+                                           	extern _PORTC
+                                           	extern _PORTD
+                                           	extern _PORTE
+                                           	extern _LATA
+                                           	extern _LATB
+                                           	extern _LATC
+                                           	extern _LATD
+                                           	extern _LATE
+                                           	extern _TRISA
+                                           	extern _TRISB
+                                           	extern _TRISC
+                                           	extern _TRISD
+                                           	extern _TRISE
+                                           	extern _OSCTUNE
+                                           	extern _PIE1
+                                           	extern _PIR1
+                                           	extern _IPR1
+                                           	extern _PIE2
+                                           	extern _PIR2
+                                           	extern _IPR2
+                                           	extern _EECON1
+                                           	extern _EECON2
+                                           	extern _EEDATA
+                                           	extern _EEADR
+                                           	extern _RCSTA
+                                           	extern _TXSTA
+                                           	extern _TXREG
+                                           	extern _RCREG
+                                           	extern _SPBRG
+                                           	extern _SPBRGH
+                                           	extern _T3CON
+                                           	extern _TMR3L
+                                           	extern _TMR3H
+                                           	extern _CMCON
+                                           	extern _CVRCON
+                                           	extern _ECCP1AS
+                                           	extern _ECCP1DEL
+                                           	extern _BAUDCON
+                                           	extern _CCP2CON
+                                           	extern _CCPR2L
+                                           	extern _CCPR2H
+                                           	extern _CCP1CON
+                                           	extern _CCPR1L
+                                           	extern _CCPR1H
+                                           	extern _ADCON2
+                                           	extern _ADCON1
+                                           	extern _ADCON0
+                                           	extern _ADRESL
+                                           	extern _ADRESH
+                                           	extern _SSPCON2
+                                           	extern _SSPCON1
+                                           	extern _SSPSTAT
+                                           	extern _SSPADD
+                                           	extern _SSPBUF
+                                           	extern _T2CON
+                                           	extern _PR2
+                                           	extern _TMR2
+                                           	extern _T1CON
+                                           	extern _TMR1L
+                                           	extern _TMR1H
+                                           	extern _RCON
+                                           	extern _WDTCON
+                                           	extern _HLVDCON
+                                           	extern _OSCCON
+                                           	extern _T0CON
+                                           	extern _TMR0L
+                                           	extern _TMR0H
+                                           	extern _STATUS
+                                           	extern _FSR2L
+                                           	extern _FSR2H
+                                           	extern _PLUSW2
+                                           	extern _PREINC2
+                                           	extern _POSTDEC2
+                                           	extern _POSTINC2
+                                           	extern _INDF2
+                                           	extern _BSR
+                                           	extern _FSR1L
+                                           	extern _FSR1H
+                                           	extern _PLUSW1
+                                           	extern _PREINC1
+                                           	extern _POSTDEC1
+                                           	extern _POSTINC1
+                                           	extern _INDF1
+                                           	extern _WREG
+                                           	extern _FSR0L
+                                           	extern _FSR0H
+                                           	extern _PLUSW0
+                                           	extern _PREINC0
+                                           	extern _POSTDEC0
+                                           	extern _POSTINC0
+                                           	extern _INDF0
+                                           	extern _INTCON3
+                                           	extern _INTCON2
+                                           	extern _INTCON
+                                           	extern _PRODL
+                                           	extern _PRODH
+                                           	extern _TABLAT
+                                           	extern _TBLPTRL
+                                           	extern _TBLPTRH
+                                           	extern _TBLPTRU
+                                           	extern _PCL
+                                           	extern _PCLATH
+                                           	extern _PCLATU
+                                           	extern _STKPTR
+                                           	extern _TOSL
+                                           	extern _TOSH
+                                           	extern _TOSU
+                                           	extern _delay10ktcy
+                                           ;--------------------------------------------------------
+                                           ;	Equates to used internal registers
+                                           ;--------------------------------------------------------
+                                           STATUS	equ	0xfd8
+                                           PCL	equ	0xff9
+                                           PCLATH	equ	0xffa
+                                           PCLATU	equ	0xffb
+                                           WREG	equ	0xfe8
+                                           BSR	equ	0xfe0
+                                           TBLPTRL	equ	0xff6
+                                           TBLPTRH	equ	0xff7
+                                           TBLPTRU	equ	0xff8
+                                           TABLAT	equ	0xff5
+                                           FSR0L	equ	0xfe9
+                                           FSR0H	equ	0xfea
+                                           FSR1L	equ	0xfe1
+                                           FSR2L	equ	0xfd9
+                                           INDF0	equ	0xfef
+                                           POSTDEC1	equ	0xfe5
+                                           PREINC1	equ	0xfe4
+                                           PLUSW2	equ	0xfdb
+                                           PRODL	equ	0xff3
+                                           PRODH	equ	0xff4
+                                           
+                                           
+                                           	idata
+                                           _phase	db	0x00
+                                           _needreordering	db	0x00
+                                           _timedivision	db	0x00
+                                           _activatedservos	db	0x00, 0x00, 0x00
+                                           _N	db	0x00, 0x00
+                                           
+                                           
+                                           ; Internal registers
+                                           .registers	udata_ovr	0x0000
+                                           r0x00	res	1
+                                           r0x01	res	1
+                                           r0x02	res	1
+                                           r0x03	res	1
+                                           r0x04	res	1
+                                           r0x05	res	1
+                                           r0x06	res	1
+                                           r0x07	res	1
+                                           r0x08	res	1
+                                           r0x09	res	1
+                                           
+                                           udata_main_0	udata
+                                           _loopvar	res	1
+                                           
+                                           udata_main_1	udata
+                                           _servovalues	res	18
+                                           
+                                           udata_main_2	udata
+                                           _timingindex	res	1
+                                           
+                                           udata_main_3	udata
+                                           _timings	res	72
+                                           
+                                           udata_main_4	udata
+                                           _SortServoTimings_mascaratotal_1_1	res	3
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global & static initialisations
+                                           ;--------------------------------------------------------
+                                           ; ; Starting pCode block
+                                           S_main__high_priority_isr	code	0X002020
+                                           _high_priority_isr:
+                                           ;	.line	96; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void high_priority_isr(void) interrupt
+002020   cfe8     movff	0xfe8, 0xfe5       	MOVFF	WREG, POSTDEC1
+002022   ffe5
+002024   cfd8     movff	0xfd8, 0xfe5       	MOVFF	STATUS, POSTDEC1
+002026   ffe5
+002028   cfe0     movff	0xfe0, 0xfe5       	MOVFF	BSR, POSTDEC1
+00202a   ffe5
+00202c   cff3     movff	0xff3, 0xfe5       	MOVFF	PRODL, POSTDEC1
+00202e   ffe5
+002030   cff4     movff	0xff4, 0xfe5       	MOVFF	PRODH, POSTDEC1
+002032   ffe5
+002034   cfe9     movff	0xfe9, 0xfe5       	MOVFF	FSR0L, POSTDEC1
+002036   ffe5
+002038   cfea     movff	0xfea, 0xfe5       	MOVFF	FSR0H, POSTDEC1
+00203a   ffe5
+00203c   cffa     movff	0xffa, 0xfe5       	MOVFF	PCLATH, POSTDEC1
+00203e   ffe5
+002040   cffb     movff	0xffb, 0xfe5       	MOVFF	PCLATU, POSTDEC1
+002042   ffe5
+                                           ;	.line	132; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	servos_interrupt();
+002044   ec73     call	0x32e6, 0           	CALL	_servos_interrupt
+002046   f019
+002048   cfe4     movff	0xfe4, 0xffb       	MOVFF	PREINC1, PCLATU
+00204a   fffb
+00204c   cfe4     movff	0xfe4, 0xffa       	MOVFF	PREINC1, PCLATH
+00204e   fffa
+002050   cfe4     movff	0xfe4, 0xfea       	MOVFF	PREINC1, FSR0H
+002052   ffea
+002054   cfe4     movff	0xfe4, 0xfe9       	MOVFF	PREINC1, FSR0L
+002056   ffe9
+002058   cfe4     movff	0xfe4, 0xff4       	MOVFF	PREINC1, PRODH
+00205a   fff4
+00205c   cfe4     movff	0xfe4, 0xff3       	MOVFF	PREINC1, PRODL
+00205e   fff3
+002060   cfe4     movff	0xfe4, 0xfe0       	MOVFF	PREINC1, BSR
+002062   ffe0
+002064   cfe4     movff	0xfe4, 0xfd8       	MOVFF	PREINC1, STATUS
+002066   ffd8
+002068   cfe4     movff	0xfe4, 0xfe8       	MOVFF	PREINC1, WREG
+00206a   ffe8
+00206c   0010     retfie	0                 	RETFIE	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__low_priority_isr	code	0X004000
+                                           _low_priority_isr:
+                                           ;	.line	140; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void low_priority_isr(void) interrupt
+004000   cfe8     movff	0xfe8, 0xfe5       	MOVFF	WREG, POSTDEC1
+004002   ffe5
+004004   cfd8     movff	0xfd8, 0xfe5       	MOVFF	STATUS, POSTDEC1
+004006   ffe5
+004008   cfe0     movff	0xfe0, 0xfe5       	MOVFF	BSR, POSTDEC1
+00400a   ffe5
+00400c   cff3     movff	0xff3, 0xfe5       	MOVFF	PRODL, POSTDEC1
+00400e   ffe5
+004010   cff4     movff	0xff4, 0xfe5       	MOVFF	PRODH, POSTDEC1
+004012   ffe5
+004014   cfe9     movff	0xfe9, 0xfe5       	MOVFF	FSR0L, POSTDEC1
+004016   ffe5
+004018   cfea     movff	0xfea, 0xfe5       	MOVFF	FSR0H, POSTDEC1
+00401a   ffe5
+00401c   cffa     movff	0xffa, 0xfe5       	MOVFF	PCLATH, POSTDEC1
+00401e   ffe5
+004020   cffb     movff	0xffb, 0xfe5       	MOVFF	PCLATU, POSTDEC1
+004022   ffe5
+                                           ;	.line	142; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	}
+004024   cfe4     movff	0xfe4, 0xffb       	MOVFF	PREINC1, PCLATU
+004026   fffb
+004028   cfe4     movff	0xfe4, 0xffa       	MOVFF	PREINC1, PCLATH
+00402a   fffa
+00402c   cfe4     movff	0xfe4, 0xfea       	MOVFF	PREINC1, FSR0H
+00402e   ffea
+004030   cfe4     movff	0xfe4, 0xfe9       	MOVFF	PREINC1, FSR0L
+004032   ffe9
+004034   cfe4     movff	0xfe4, 0xff4       	MOVFF	PREINC1, PRODH
+004036   fff4
+004038   cfe4     movff	0xfe4, 0xff3       	MOVFF	PREINC1, PRODL
+00403a   fff3
+00403c   cfe4     movff	0xfe4, 0xfe0       	MOVFF	PREINC1, BSR
+00403e   ffe0
+004040   cfe4     movff	0xfe4, 0xfd8       	MOVFF	PREINC1, STATUS
+004042   ffd8
+004044   cfe4     movff	0xfe4, 0xfe8       	MOVFF	PREINC1, WREG
+004046   ffe8
+004048   0010     retfie	0                 	RETFIE	
+                                           
+                                           ; I code from now on!
+                                           ; ; Starting pCode block
+                                           S_main__pinguino_main	code
+                                           _pinguino_main:
+                                           ;	.line	52; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	PIE1=0;
+0034da   6a9d     clrf	0x9d, 0             	CLRF	_PIE1
+                                           ;	.line	53; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	PIE2=0;
+0034dc   6aa0     clrf	0xa0, 0             	CLRF	_PIE2
+                                           ;	.line	54; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	ADCON1=0x0F;
+0034de   0e0f     movlw	0xf                	MOVLW	0x0f
+0034e0   6ec1     movwf	0xc1, 0            	MOVWF	_ADCON1
+                                           ;	.line	59; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	setup();
+0034e2   ecfc     call	0x31f8, 0           	CALL	_setup
+0034e4   f018
+                                           ;	.line	67; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	servos_init();
+0034e6   ec4e     call	0x329c, 0           	CALL	_servos_init
+0034e8   f019
+                                           ;	.line	83; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	INTCONbits.PEIE=1;
+0034ea   8cf2     bsf	0xf2, 0x6, 0         	BSF	_INTCONbits, 6
+                                           ;	.line	84; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	INTCONbits.GIE=1;
+0034ec   8ef2     bsf	0xf2, 0x7, 0         	BSF	_INTCONbits, 7
+                                           _00489_DS_:
+                                           ;	.line	89; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	loop();
+0034ee   ec8f     call	0x311e, 0           	CALL	_loop
+0034f0   f018
+0034f2   d7fd     bra	0x34ee               	BRA	_00489_DS_
+0034f4   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__loop	code
+                                           _loop:
+                                           ;	.line	56; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	void loop() {
+00311e   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+003120   ffe5
+003122   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+003124   ffe5
+                                           ;	.line	60; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	if (!digitalread(I)) izquierda();
+003126   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003128   0e08     movlw	0x8                	MOVLW	0x08
+00312a   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00312c   ec07     call	0x2c0e, 0           	CALL	_digitalread
+00312e   f016
+003130   6e00     movwf	0, 0               	MOVWF	r0x00
+003132   cff3     movff	0xff3, 0x1         	MOVFF	PRODL, r0x01
+003134   f001
+003136   0e02     movlw	0x2                	MOVLW	0x02
+003138   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+00313a   5000     movf	0, 0, 0             	MOVF	r0x00, W
+                                           ; #	IORWF	r0x01, W
+                                           ; #	BTFSS	STATUS, 2
+                                           ; #	GOTO	_00480_DS_
+                                           ; #	CALL	_izquierda
+                                           ; #	MOVLW	0x00
+                                           ;	.line	62; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	if (!digitalread(D))  derecha();
+00313c   1001     iorwf	0x1, 0, 0          	IORWF	r0x01, W
+00313e   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+003140   ecfe     call	0x33fc, 0           	CALL	_izquierda
+003142   f019
+003144   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003146   0e09     movlw	0x9                	MOVLW	0x09
+003148   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00314a   ec07     call	0x2c0e, 0           	CALL	_digitalread
+00314c   f016
+00314e   6e00     movwf	0, 0               	MOVWF	r0x00
+003150   cff3     movff	0xff3, 0x1         	MOVFF	PRODL, r0x01
+003152   f001
+003154   0e02     movlw	0x2                	MOVLW	0x02
+003156   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+003158   5000     movf	0, 0, 0             	MOVF	r0x00, W
+                                           ; #	IORWF	r0x01, W
+                                           ; #	BTFSS	STATUS, 2
+                                           ; #	GOTO	_00482_DS_
+                                           ; #	CALL	_derecha
+                                           ; #	MOVLW	0xf4
+                                           ;	.line	63; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(LI,500); // enciende los led y varia su brillo
+00315a   1001     iorwf	0x1, 0, 0          	IORWF	r0x01, W
+00315c   b4d8     btfsc	0xd8, 0x2, 0       	BTFSC	STATUS, 2
+00315e   ec1d     call	0x343a, 0           	CALL	_derecha
+003160   f01a
+003162   0ef4     movlw	0xf4               	MOVLW	0xf4
+003164   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003166   0e02     movlw	0x2                	MOVLW	0x02
+003168   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00316a   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00316c   f018
+00316e   0e02     movlw	0x2                	MOVLW	0x02
+003170   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	64; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(LD,20);
+003172   0e14     movlw	0x14               	MOVLW	0x14
+003174   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003176   0e01     movlw	0x1                	MOVLW	0x01
+003178   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00317a   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00317c   f018
+00317e   0e02     movlw	0x2                	MOVLW	0x02
+003180   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	65; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	adelante();
+003182   ec53     call	0x34a6, 0           	CALL	_adelante
+003184   f01a
+003186   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+003188   f001
+00318a   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+00318c   f000
+00318e   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__derecha	code
+                                           _derecha:
+                                           ;	.line	50; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	atras();
+00343a   ec39     call	0x3472, 0           	CALL	_atras
+00343c   f01a
+                                           ;	.line	51; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RI,250);
+00343e   0efa     movlw	0xfa               	MOVLW	0xfa
+003440   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003442   0e07     movlw	0x7                	MOVLW	0x07
+003444   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003446   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+003448   f018
+00344a   0e02     movlw	0x2                	MOVLW	0x02
+00344c   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	52; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RD,250);
+00344e   0efa     movlw	0xfa               	MOVLW	0xfa
+003450   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003452   0e06     movlw	0x6                	MOVLW	0x06
+003454   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003456   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+003458   f018
+00345a   0e02     movlw	0x2                	MOVLW	0x02
+00345c   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	53; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	Delayms (tempo);
+00345e   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003460   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003462   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003464   0eee     movlw	0xee               	MOVLW	0xee
+003466   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003468   ecf5     call	0x2fea, 0           	CALL	_Delayms
+00346a   f017
+00346c   0e04     movlw	0x4                	MOVLW	0x04
+00346e   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+003470   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__izquierda	code
+                                           _izquierda:
+                                           ;	.line	40; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	atras();
+0033fc   ec39     call	0x3472, 0           	CALL	_atras
+0033fe   f01a
+                                           ;	.line	41; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RI,50);
+003400   0e32     movlw	0x32               	MOVLW	0x32
+003402   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003404   0e07     movlw	0x7                	MOVLW	0x07
+003406   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003408   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00340a   f018
+00340c   0e02     movlw	0x2                	MOVLW	0x02
+00340e   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	42; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RD,50);
+003410   0e32     movlw	0x32               	MOVLW	0x32
+003412   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003414   0e06     movlw	0x6                	MOVLW	0x06
+003416   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003418   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00341a   f018
+00341c   0e02     movlw	0x2                	MOVLW	0x02
+00341e   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	43; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	Delayms (tempo);
+003420   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003422   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003424   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003426   0eee     movlw	0xee               	MOVLW	0xee
+003428   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00342a   ecf5     call	0x2fea, 0           	CALL	_Delayms
+00342c   f017
+00342e   0e04     movlw	0x4                	MOVLW	0x04
+003430   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+003432   0102     movlb	0x2                	BANKSEL	_N
+                                           ;	.line	44; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	N = 0;
+003434   6b61     clrf	0x61, 0x1           	CLRF	_N, B
+                                           ; removed redundant BANKSEL
+003436   6b62     clrf	0x62, 0x1           	CLRF	(_N + 1), B
+003438   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__atras	code
+                                           _atras:
+                                           ;	.line	34; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RI,50);
+003472   0e32     movlw	0x32               	MOVLW	0x32
+003474   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003476   0e07     movlw	0x7                	MOVLW	0x07
+003478   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00347a   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00347c   f018
+00347e   0e02     movlw	0x2                	MOVLW	0x02
+003480   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	35; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RD,250);
+003482   0efa     movlw	0xfa               	MOVLW	0xfa
+003484   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003486   0e06     movlw	0x6                	MOVLW	0x06
+003488   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00348a   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+00348c   f018
+00348e   0e02     movlw	0x2                	MOVLW	0x02
+003490   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	36; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	Delayms (750); // espera 250 mS
+003492   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003494   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003496   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003498   0eee     movlw	0xee               	MOVLW	0xee
+00349a   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00349c   ecf5     call	0x2fea, 0           	CALL	_Delayms
+00349e   f017
+0034a0   0e04     movlw	0x4                	MOVLW	0x04
+0034a2   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+0034a4   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__adelante	code
+                                           _adelante:
+                                           ;	.line	27; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RI,250);
+0034a6   0efa     movlw	0xfa               	MOVLW	0xfa
+0034a8   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0034aa   0e07     movlw	0x7                	MOVLW	0x07
+0034ac   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0034ae   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+0034b0   f018
+0034b2   0e02     movlw	0x2                	MOVLW	0x02
+0034b4   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	28; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoWrite(RD,50);
+0034b6   0e32     movlw	0x32               	MOVLW	0x32
+0034b8   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0034ba   0e06     movlw	0x6                	MOVLW	0x06
+0034bc   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0034be   ecc8     call	0x3190, 0           	CALL	_ServoWrite
+0034c0   f018
+0034c2   0e02     movlw	0x2                	MOVLW	0x02
+0034c4   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	29; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	Delayms(10);// espera 10 mS
+0034c6   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+0034c8   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+0034ca   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+0034cc   0e0a     movlw	0xa                	MOVLW	0x0a
+0034ce   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0034d0   ecf5     call	0x2fea, 0           	CALL	_Delayms
+0034d2   f017
+0034d4   0e04     movlw	0x4                	MOVLW	0x04
+0034d6   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+0034d8   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__setup	code
+                                           _setup:
+                                           ;	.line	17; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	pinmode(D,INPUT);
+0031f8   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+0031fa   0e01     movlw	0x1                	MOVLW	0x01
+0031fc   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+0031fe   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003200   0e09     movlw	0x9                	MOVLW	0x09
+003202   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003204   ec11     call	0x2822, 0           	CALL	_pinmode
+003206   f014
+003208   0e04     movlw	0x4                	MOVLW	0x04
+00320a   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	18; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	pinmode(I,INPUT);
+00320c   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+00320e   0e01     movlw	0x1                	MOVLW	0x01
+003210   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003212   6ae5     clrf	0xe5, 0             	CLRF	POSTDEC1
+003214   0e08     movlw	0x8                	MOVLW	0x08
+003216   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003218   ec11     call	0x2822, 0           	CALL	_pinmode
+00321a   f014
+00321c   0e04     movlw	0x4                	MOVLW	0x04
+00321e   26e1     addwf	0xe1, 0x1, 0       	ADDWF	FSR1L, F
+                                           ;	.line	19; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoAttach(RD);
+003220   0e06     movlw	0x6                	MOVLW	0x06
+003222   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003224   ecbb     call	0x2d76, 0           	CALL	_ServoAttach
+003226   f016
+003228   2ae1     incf	0xe1, 0x1, 0        	INCF	FSR1L, F
+                                           ;	.line	20; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoAttach(RI);
+00322a   0e07     movlw	0x7                	MOVLW	0x07
+00322c   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+00322e   ecbb     call	0x2d76, 0           	CALL	_ServoAttach
+003230   f016
+003232   2ae1     incf	0xe1, 0x1, 0        	INCF	FSR1L, F
+                                           ;	.line	21; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoAttach(LD);
+003234   0e01     movlw	0x1                	MOVLW	0x01
+003236   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003238   ecbb     call	0x2d76, 0           	CALL	_ServoAttach
+00323a   f016
+00323c   2ae1     incf	0xe1, 0x1, 0        	INCF	FSR1L, F
+                                           ;	.line	22; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/user.c	ServoAttach(LI);
+00323e   0e02     movlw	0x2                	MOVLW	0x02
+003240   6ee5     movwf	0xe5, 0            	MOVWF	POSTDEC1
+003242   ecbb     call	0x2d76, 0           	CALL	_ServoAttach
+003244   f016
+003246   2ae1     incf	0xe1, 0x1, 0        	INCF	FSR1L, F
+003248   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__epapout_init	code
+                                           _epapout_init:
+                                           ;	.line	40; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void epapout_init() { return; }
+003534   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__epapin_init	code
+                                           _epapin_init:
+                                           ;	.line	39; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void epapin_init() { return; }
+003536   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__epap_out	code
+                                           _epap_out:
+                                           ;	.line	38; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void epap_out() { return; }
+003538   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__epap_in	code
+                                           _epap_in:
+                                           ;	.line	37; /home/moteado/src/gnu/pinguino_beta9-05_linux/source/main.c	void epap_in() { return; }
+00353a   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__Delayus	code
+                                           _Delayus:
+                                           ;	.line	16; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/arduinodelay.c	void Delayus(int microsecondes)
+00324a   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+00324c   ffe5
+00324e   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+003250   ffd9
+003252   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+003254   ffe5
+003256   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+003258   ffe5
+00325a   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+00325c   ffe5
+00325e   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+003260   ffe5
+003262   0e02     movlw	0x2                	MOVLW	0x02
+003264   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+003266   f000
+003268   0e03     movlw	0x3                	MOVLW	0x03
+00326a   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+00326c   f001
+                                           ;	.line	20; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/arduinodelay.c	for (i=0;i<microsecondes;i++);
+00326e   6a02     clrf	0x2, 0              	CLRF	r0x02
+003270   6a03     clrf	0x3, 0              	CLRF	r0x03
+                                           _00420_DS_:
+003272   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+003274   5c03     subwf	0x3, 0, 0          	SUBWF	r0x03, W
+003276   e102     bnz	0x327c               	BNZ	_00429_DS_
+003278   5000     movf	0, 0, 0             	MOVF	r0x00, W
+00327a   5c02     subwf	0x2, 0, 0          	SUBWF	r0x02, W
+                                           _00429_DS_:
+00327c   e204     bc	0x3286                	BC	_00424_DS_
+00327e   2a02     incf	0x2, 0x1, 0         	INCF	r0x02, F
+003280   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+003282   2a03     incf	0x3, 0x1, 0         	INCF	r0x03, F
+003284   d7f6     bra	0x3272               	BRA	_00420_DS_
+                                           _00424_DS_:
+003286   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+003288   f003
+00328a   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+00328c   f002
+00328e   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+003290   f001
+003292   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+003294   f000
+003296   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+003298   ffd9
+00329a   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__Delayms	code
+                                           _Delayms:
+                                           ;	.line	9; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/arduinodelay.c	void Delayms(unsigned long milliseconde)
+002fea   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002fec   ffe5
+002fee   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002ff0   ffd9
+002ff2   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002ff4   ffe5
+002ff6   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002ff8   ffe5
+002ffa   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002ffc   ffe5
+002ffe   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+003000   ffe5
+003002   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+003004   ffe5
+003006   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+003008   ffe5
+00300a   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+00300c   ffe5
+00300e   c007     movff	0x7, 0xfe5         	MOVFF	r0x07, POSTDEC1
+003010   ffe5
+003012   0e02     movlw	0x2                	MOVLW	0x02
+003014   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+003016   f000
+003018   0e03     movlw	0x3                	MOVLW	0x03
+00301a   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+00301c   f001
+00301e   0e04     movlw	0x4                	MOVLW	0x04
+003020   cfdb     movff	0xfdb, 0x2         	MOVFF	PLUSW2, r0x02
+003022   f002
+003024   0e05     movlw	0x5                	MOVLW	0x05
+003026   cfdb     movff	0xfdb, 0x3         	MOVFF	PLUSW2, r0x03
+003028   f003
+                                           ;	.line	13; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/arduinodelay.c	for (i=0;i<milliseconde;i++) delay10ktcy(1);
+00302a   6a04     clrf	0x4, 0              	CLRF	r0x04
+00302c   6a05     clrf	0x5, 0              	CLRF	r0x05
+00302e   6a06     clrf	0x6, 0              	CLRF	r0x06
+003030   6a07     clrf	0x7, 0              	CLRF	r0x07
+                                           _00406_DS_:
+003032   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+003034   5c07     subwf	0x7, 0, 0          	SUBWF	r0x07, W
+003036   e108     bnz	0x3048               	BNZ	_00415_DS_
+003038   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00303a   5c06     subwf	0x6, 0, 0          	SUBWF	r0x06, W
+00303c   e105     bnz	0x3048               	BNZ	_00415_DS_
+00303e   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+003040   5c05     subwf	0x5, 0, 0          	SUBWF	r0x05, W
+003042   e102     bnz	0x3048               	BNZ	_00415_DS_
+003044   5000     movf	0, 0, 0             	MOVF	r0x00, W
+003046   5c04     subwf	0x4, 0, 0          	SUBWF	r0x04, W
+                                           _00415_DS_:
+003048   e20b     bc	0x3060                	BC	_00410_DS_
+00304a   0e01     movlw	0x1                	MOVLW	0x01
+00304c   ec37     call	0x6e, 0             	CALL	_delay10ktcy
+00304e   f000
+003050   2a04     incf	0x4, 0x1, 0         	INCF	r0x04, F
+003052   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+003054   2a05     incf	0x5, 0x1, 0         	INCF	r0x05, F
+003056   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+003058   2a06     incf	0x6, 0x1, 0         	INCF	r0x06, F
+00305a   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00305c   2a07     incf	0x7, 0x1, 0         	INCF	r0x07, F
+00305e   d7e9     bra	0x3032               	BRA	_00406_DS_
+                                           _00410_DS_:
+003060   cfe4     movff	0xfe4, 0x7         	MOVFF	PREINC1, r0x07
+003062   f007
+003064   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+003066   f006
+003068   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+00306a   f005
+00306c   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+00306e   f004
+003070   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+003072   f003
+003074   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+003076   f002
+003078   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+00307a   f001
+00307c   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+00307e   f000
+003080   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+003082   ffd9
+003084   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__servos_interrupt	code
+                                           _servos_interrupt:
+                                           ;	.line	288; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (PIR1bits.TMR1IF) {
+0032e6   a09e     btfss	0x9e, 0, 0         	BTFSS	_PIR1bits, 0
+0032e8   d020     bra	0x332a               	BRA	_00401_DS_
+                                           ;	.line	289; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PIR1bits.TMR1IF=0;
+0032ea   909e     bcf	0x9e, 0, 0           	BCF	_PIR1bits, 0
+                                           ;	.line	290; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	T1CON=0x00;
+0032ec   6acd     clrf	0xcd, 0             	CLRF	_T1CON
+0032ee   0102     movlb	0x2                	BANKSEL	_phase
+                                           ;	.line	291; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (phase) {
+0032f0   515b     movf	0x5b, 0, 0x1        	MOVF	_phase, W, B
+0032f2   e00b     bz	0x330a                	BZ	_00397_DS_
+                                           ;	.line	293; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	ServosPulseUp();
+0032f4   ec87     call	0x350e, 0           	CALL	_ServosPulseUp
+0032f6   f01a
+                                           ;	.line	295; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1H= 0xd3;
+0032f8   0ed3     movlw	0xd3               	MOVLW	0xd3
+0032fa   6ecf     movwf	0xcf, 0            	MOVWF	_TMR1H
+                                           ;	.line	296; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1L= 0x8f;
+0032fc   0e8f     movlw	0x8f               	MOVLW	0x8f
+0032fe   6ece     movwf	0xce, 0            	MOVWF	_TMR1L
+                                           ;	.line	298; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	T1CON=1;
+003300   0e01     movlw	0x1                	MOVLW	0x01
+003302   6ecd     movwf	0xcd, 0            	MOVWF	_T1CON
+003304   0102     movlb	0x2                	BANKSEL	_phase
+                                           ;	.line	299; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	phase = 0;
+003306   6b5b     clrf	0x5b, 0x1           	CLRF	_phase, B
+003308   d010     bra	0x332a               	BRA	_00401_DS_
+                                           _00397_DS_:
+                                           ;	.line	304; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	ServosPulseDown();
+00330a   ec95     call	0x2f2a, 0           	CALL	_ServosPulseDown
+00330c   f017
+                                           ;	.line	308; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1H= 0x2d;
+00330e   0e2d     movlw	0x2d               	MOVLW	0x2d
+003310   6ecf     movwf	0xcf, 0            	MOVWF	_TMR1H
+                                           ;	.line	309; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1L= 0x0f;
+003312   0e0f     movlw	0xf                	MOVLW	0x0f
+003314   6ece     movwf	0xce, 0            	MOVWF	_TMR1L
+                                           ; #	MOVF	_needreordering, W, B
+                                           ; #	BTFSC	STATUS, 2
+                                           ; #	GOTO	_00395_DS_
+                                           ; #	CALL	_SortServoTimings
+                                           ; #	MOVLW	0x21
+003316   0102     movlb	0x2                	BANKSEL	_needreordering
+                                           ;	.line	311; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (needreordering)	
+003318   515c     movf	0x5c, 0, 0x1        	MOVF	_needreordering, W, B
+                                           ;	.line	312; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	SortServoTimings();  // This takes more than 1 ms, but it's call only if needed.
+00331a   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+                                           ;	.line	313; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	T1CON= ( 1 | 2 << 4 ) ; // activate timer1 and prescaler = 1:4
+00331c   ec37     call	0x206e, 0           	CALL	_SortServoTimings
+00331e   f010
+003320   0e21     movlw	0x21               	MOVLW	0x21
+003322   6ecd     movwf	0xcd, 0            	MOVWF	_T1CON
+                                           ;	.line	314; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	phase = 1;  //This indicates that after next interrupt it will start the servos cycle.
+003324   0e01     movlw	0x1                	MOVLW	0x01
+003326   0102     movlb	0x2                	BANKSEL	_phase
+003328   6f5b     movwf	0x5b, 0x1          	MOVWF	_phase, B
+                                           _00401_DS_:
+                                           ;	.line	317; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return;
+00332a   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoMaximumPulse	code
+                                           _ServoMaximumPulse:
+                                           ;	.line	273; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void ServoMaximumPulse(uchar servo)
+00332c   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+00332e   ffe5
+003330   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+003332   ffd9
+003334   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+003336   ffe5
+003338   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+00333a   ffe5
+00333c   0e02     movlw	0x2                	MOVLW	0x02
+00333e   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+003340   f000
+                                           ;	.line	275; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(servo>=18)        // test if numservo is valid
+003342   0e12     movlw	0x12               	MOVLW	0x12
+                                           ; #	SUBWF	r0x00, W
+                                           ; #	BTFSS	STATUS, 0
+                                           ; #	GOTO	_00385_DS_
+                                           ; #	GOTO	_00386_DS_
+                                           ; #	CLRF	r0x01
+                                           ;	.line	276; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return;
+003344   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+                                           ;	.line	278; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	servovalues[servo]=SERVOMAX;  //  250 = 2000 useg pulse
+003346   e20e     bc	0x3364                	BC	_00386_DS_
+003348   6a01     clrf	0x1, 0              	CLRF	r0x01
+00334a   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+00334c   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+00334e   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+003350   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+003352   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+003354   ffe9
+003356   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+003358   ffea
+00335a   0efa     movlw	0xfa               	MOVLW	0xfa
+00335c   6eef     movwf	0xef, 0            	MOVWF	INDF0
+                                           ;	.line	280; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	needreordering=1;  // This indicates servo timings must be reordered.
+00335e   0e01     movlw	0x1                	MOVLW	0x01
+003360   0102     movlb	0x2                	BANKSEL	_needreordering
+003362   6f5c     movwf	0x5c, 0x1          	MOVWF	_needreordering, B
+                                           _00386_DS_:
+003364   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+003366   f001
+003368   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+00336a   f000
+00336c   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+00336e   ffd9
+003370   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoMinimumPulse	code
+                                           _ServoMinimumPulse:
+                                           ;	.line	262; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void ServoMinimumPulse(uchar servo)
+0033b8   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+0033ba   ffe5
+0033bc   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+0033be   ffd9
+0033c0   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+0033c2   ffe5
+0033c4   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+0033c6   ffe5
+0033c8   0e02     movlw	0x2                	MOVLW	0x02
+0033ca   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+0033cc   f000
+                                           ;	.line	264; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(servo>=18)        // test if numservo is valid
+0033ce   0e12     movlw	0x12               	MOVLW	0x12
+                                           ; #	SUBWF	r0x00, W
+                                           ; #	BTFSS	STATUS, 0
+                                           ; #	GOTO	_00375_DS_
+                                           ; #	GOTO	_00376_DS_
+                                           ; #	CLRF	r0x01
+                                           ;	.line	265; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return;
+0033d0   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+                                           ;	.line	267; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	servovalues[servo]=SERVOMIN;  //  1 = 1000 useg pulse
+0033d2   e20d     bc	0x33ee                	BC	_00376_DS_
+0033d4   6a01     clrf	0x1, 0              	CLRF	r0x01
+0033d6   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+0033d8   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+0033da   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+0033dc   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+0033de   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+0033e0   ffe9
+0033e2   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+0033e4   ffea
+0033e6   0e01     movlw	0x1                	MOVLW	0x01
+0033e8   6eef     movwf	0xef, 0            	MOVWF	INDF0
+0033ea   0102     movlb	0x2                	BANKSEL	_needreordering
+                                           ;	.line	269; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	needreordering=1;  // This indicates servo timings must be reordered.
+0033ec   6f5c     movwf	0x5c, 0x1          	MOVWF	_needreordering, B
+                                           _00376_DS_:
+0033ee   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+0033f0   f001
+0033f2   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+0033f4   f000
+0033f6   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+0033f8   ffd9
+0033fa   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoRead	code
+                                           _ServoRead:
+                                           ;	.line	254; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	unsigned char ServoRead(uchar servo)
+003372   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+003374   ffe5
+003376   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+003378   ffd9
+00337a   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+00337c   ffe5
+00337e   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+003380   ffe5
+003382   0e02     movlw	0x2                	MOVLW	0x02
+003384   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+003386   f000
+                                           ;	.line	256; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(servo>=18)        // test if numservo is valid
+003388   0e12     movlw	0x12               	MOVLW	0x12
+00338a   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+00338c   e302     bnc	0x3392               	BNC	_00365_DS_
+                                           ;	.line	257; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return 0;
+00338e   6ae8     clrf	0xe8, 0             	CLRF	WREG
+003390   d00c     bra	0x33aa               	BRA	_00366_DS_
+                                           _00365_DS_:
+                                           ;	.line	258; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return servovalues[servo];
+003392   6a01     clrf	0x1, 0              	CLRF	r0x01
+003394   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+003396   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+003398   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+00339a   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+00339c   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+00339e   ffe9
+0033a0   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+0033a2   ffea
+0033a4   cfef     movff	0xfef, 0           	MOVFF	INDF0, r0x00
+0033a6   f000
+0033a8   5000     movf	0, 0, 0             	MOVF	r0x00, W
+                                           _00366_DS_:
+0033aa   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+0033ac   f001
+0033ae   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+0033b0   f000
+0033b2   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+0033b4   ffd9
+0033b6   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoWrite	code
+                                           _ServoWrite:
+                                           ;	.line	239; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void ServoWrite(uchar servo, uchar value)
+003190   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+003192   ffe5
+003194   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+003196   ffd9
+003198   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+00319a   ffe5
+00319c   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+00319e   ffe5
+0031a0   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+0031a2   ffe5
+0031a4   0e02     movlw	0x2                	MOVLW	0x02
+0031a6   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+0031a8   f000
+0031aa   0e03     movlw	0x3                	MOVLW	0x03
+0031ac   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+0031ae   f001
+                                           ;	.line	241; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(servo>=18)        // test if numservo is valid
+0031b0   0e12     movlw	0x12               	MOVLW	0x12
+                                           ; #	SUBWF	r0x00, W
+                                           ; #	BTFSS	STATUS, 0
+                                           ; #	GOTO	_00347_DS_
+                                           ; #	GOTO	_00352_DS_
+                                           ; #	MOVLW	0x01
+                                           ;	.line	242; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	return;
+0031b2   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+                                           ;	.line	244; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(value<SERVOMIN)  //  1 = 1000 useg pulse
+0031b4   e218     bc	0x31e6                	BC	_00352_DS_
+0031b6   0e01     movlw	0x1                	MOVLW	0x01
+0031b8   5c01     subwf	0x1, 0, 0          	SUBWF	r0x01, W
+0031ba   e202     bc	0x31c0                	BC	_00349_DS_
+                                           ;	.line	245; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	value=SERVOMIN;
+0031bc   0e01     movlw	0x1                	MOVLW	0x01
+0031be   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           _00349_DS_:
+                                           ;	.line	246; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(value>SERVOMAX) // 250 = 2000 useg pulse
+0031c0   0efb     movlw	0xfb               	MOVLW	0xfb
+0031c2   5c01     subwf	0x1, 0, 0          	SUBWF	r0x01, W
+0031c4   e302     bnc	0x31ca               	BNC	_00351_DS_
+                                           ;	.line	247; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	value=SERVOMAX;
+0031c6   0efa     movlw	0xfa               	MOVLW	0xfa
+0031c8   6e01     movwf	0x1, 0             	MOVWF	r0x01
+                                           _00351_DS_:
+                                           ;	.line	248; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	servovalues[servo]=value;
+0031ca   6a02     clrf	0x2, 0              	CLRF	r0x02
+0031cc   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+0031ce   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+0031d0   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+0031d2   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0031d4   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+0031d6   ffe9
+0031d8   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0031da   ffea
+0031dc   c001     movff	0x1, 0xfef         	MOVFF	r0x01, INDF0
+0031de   ffef
+                                           ;	.line	250; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	needreordering=1;  // This indicates servo timings must be reordered.
+0031e0   0e01     movlw	0x1                	MOVLW	0x01
+0031e2   0102     movlb	0x2                	BANKSEL	_needreordering
+0031e4   6f5c     movwf	0x5c, 0x1          	MOVWF	_needreordering, B
+                                           _00352_DS_:
+0031e6   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+0031e8   f002
+0031ea   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+0031ec   f001
+0031ee   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+0031f0   f000
+0031f2   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+0031f4   ffd9
+0031f6   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoDetach	code
+                                           _ServoDetach:
+                                           ;	.line	225; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void ServoDetach(uchar pin)
+002e56   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002e58   ffe5
+002e5a   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002e5c   ffd9
+002e5e   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002e60   ffe5
+002e62   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002e64   ffe5
+002e66   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002e68   ffe5
+002e6a   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+002e6c   ffe5
+002e6e   0e02     movlw	0x2                	MOVLW	0x02
+002e70   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+002e72   f000
+                                           ;	.line	227; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(pin>=18) return;
+002e74   0e12     movlw	0x12               	MOVLW	0x12
+                                           ; #	SUBWF	r0x00, W
+                                           ; #	BTFSS	STATUS, 0
+                                           ; #	GOTO	_00326_DS_
+                                           ; #	GOTO	_00333_DS_
+                                           ; #	MOVLW	0x08
+                                           ;	.line	229; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(pin<8){
+002e76   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002e78   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002e7a   d04c     bra	0x2f14               	BRA	_00333_DS_
+002e7c   0e08     movlw	0x8                	MOVLW	0x08
+002e7e   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002e80   e218     bc	0x2eb2                	BC	_00331_DS_
+                                           ;	.line	230; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_B] = activatedservos[MaskPort_B] ^ servomasks[pin];
+002e82   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002e84   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002e86   6e01     movwf	0x1, 0             	MOVWF	r0x01
+002e88   6a02     clrf	0x2, 0              	CLRF	r0x02
+002e8a   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002e8c   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002e8e   6a03     clrf	0x3, 0              	CLRF	r0x03
+002e90   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002e92   2203     addwfc	0x3, 0x1, 0       	ADDWFC	r0x03, F
+002e94   c001     movff	0x1, 0xff6         	MOVFF	r0x01, TBLPTRL
+002e96   fff6
+002e98   c002     movff	0x2, 0xff7         	MOVFF	r0x02, TBLPTRH
+002e9a   fff7
+002e9c   c003     movff	0x3, 0xff8         	MOVFF	r0x03, TBLPTRU
+002e9e   fff8
+002ea0   0009     tblrd	*+                 	TBLRD*+	
+002ea2   cff5     movff	0xff5, 0x1         	MOVFF	TABLAT, r0x01
+002ea4   f001
+002ea6   0102     movlb	0x2                	BANKSEL	_activatedservos
+002ea8   515e     movf	0x5e, 0, 0x1        	MOVF	_activatedservos, W, B
+002eaa   1a01     xorwf	0x1, 0x1, 0        	XORWF	r0x01, F
+002eac   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+                                           ; removed redundant BANKSEL
+002eae   6f5e     movwf	0x5e, 0x1          	MOVWF	_activatedservos, B
+002eb0   d031     bra	0x2f14               	BRA	_00333_DS_
+                                           _00331_DS_:
+                                           ;	.line	231; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	} else if (pin>12) {
+002eb2   0e0d     movlw	0xd                	MOVLW	0x0d
+002eb4   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002eb6   e318     bnc	0x2ee8               	BNC	_00328_DS_
+                                           ;	.line	232; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_A] = activatedservos[MaskPort_A] ^ servomasks[pin];
+002eb8   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002eba   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002ebc   6e01     movwf	0x1, 0             	MOVWF	r0x01
+002ebe   6a02     clrf	0x2, 0              	CLRF	r0x02
+002ec0   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002ec2   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002ec4   6a03     clrf	0x3, 0              	CLRF	r0x03
+002ec6   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002ec8   2203     addwfc	0x3, 0x1, 0       	ADDWFC	r0x03, F
+002eca   c001     movff	0x1, 0xff6         	MOVFF	r0x01, TBLPTRL
+002ecc   fff6
+002ece   c002     movff	0x2, 0xff7         	MOVFF	r0x02, TBLPTRH
+002ed0   fff7
+002ed2   c003     movff	0x3, 0xff8         	MOVFF	r0x03, TBLPTRU
+002ed4   fff8
+002ed6   0009     tblrd	*+                 	TBLRD*+	
+002ed8   cff5     movff	0xff5, 0x1         	MOVFF	TABLAT, r0x01
+002eda   f001
+002edc   0102     movlb	0x2                	BANKSEL	(_activatedservos + 2)
+002ede   5160     movf	0x60, 0, 0x1        	MOVF	(_activatedservos + 2), W, B
+002ee0   1a01     xorwf	0x1, 0x1, 0        	XORWF	r0x01, F
+002ee2   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+                                           ; removed redundant BANKSEL
+002ee4   6f60     movwf	0x60, 0x1          	MOVWF	(_activatedservos + 2), B
+002ee6   d016     bra	0x2f14               	BRA	_00333_DS_
+                                           _00328_DS_:
+                                           ;	.line	234; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_C] = activatedservos[MaskPort_C] ^ servomasks[pin];
+002ee8   6a01     clrf	0x1, 0              	CLRF	r0x01
+002eea   6a02     clrf	0x2, 0              	CLRF	r0x02
+002eec   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002eee   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002ef0   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002ef2   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002ef4   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002ef6   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002ef8   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+002efa   fff6
+002efc   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+002efe   fff7
+002f00   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+002f02   fff8
+002f04   0009     tblrd	*+                 	TBLRD*+	
+002f06   cff5     movff	0xff5, 0           	MOVFF	TABLAT, r0x00
+002f08   f000
+002f0a   0102     movlb	0x2                	BANKSEL	(_activatedservos + 1)
+002f0c   515f     movf	0x5f, 0, 0x1        	MOVF	(_activatedservos + 1), W, B
+002f0e   1a00     xorwf	0, 0x1, 0          	XORWF	r0x00, F
+002f10   5000     movf	0, 0, 0             	MOVF	r0x00, W
+                                           ; removed redundant BANKSEL
+002f12   6f5f     movwf	0x5f, 0x1          	MOVWF	(_activatedservos + 1), B
+                                           _00333_DS_:
+002f14   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+002f16   f003
+002f18   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+002f1a   f002
+002f1c   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002f1e   f001
+002f20   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002f22   f000
+002f24   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002f26   ffd9
+002f28   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServoAttach	code
+                                           _ServoAttach:
+                                           ;	.line	208; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void ServoAttach(uchar pin)
+002d76   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002d78   ffe5
+002d7a   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002d7c   ffd9
+002d7e   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002d80   ffe5
+002d82   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002d84   ffe5
+002d86   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002d88   ffe5
+002d8a   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+002d8c   ffe5
+002d8e   0e02     movlw	0x2                	MOVLW	0x02
+002d90   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+002d92   f000
+                                           ;	.line	210; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(pin>=18) return;
+002d94   0e12     movlw	0x12               	MOVLW	0x12
+                                           ; #	SUBWF	r0x00, W
+                                           ; #	BTFSS	STATUS, 0
+                                           ; #	GOTO	_00304_DS_
+                                           ; #	GOTO	_00311_DS_
+                                           ; #	MOVLW	0x08
+                                           ;	.line	212; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if(pin<8){
+002d96   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002d98   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002d9a   d052     bra	0x2e40               	BRA	_00311_DS_
+002d9c   0e08     movlw	0x8                	MOVLW	0x08
+002d9e   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002da0   e21a     bc	0x2dd6                	BC	_00309_DS_
+                                           ;	.line	213; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_B] = activatedservos[MaskPort_B] | servomasks[pin];  // list pin as servo driver.
+002da2   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002da4   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002da6   6e01     movwf	0x1, 0             	MOVWF	r0x01
+002da8   6a02     clrf	0x2, 0              	CLRF	r0x02
+002daa   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002dac   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002dae   6a03     clrf	0x3, 0              	CLRF	r0x03
+002db0   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002db2   2203     addwfc	0x3, 0x1, 0       	ADDWFC	r0x03, F
+002db4   c001     movff	0x1, 0xff6         	MOVFF	r0x01, TBLPTRL
+002db6   fff6
+002db8   c002     movff	0x2, 0xff7         	MOVFF	r0x02, TBLPTRH
+002dba   fff7
+002dbc   c003     movff	0x3, 0xff8         	MOVFF	r0x03, TBLPTRU
+002dbe   fff8
+002dc0   0009     tblrd	*+                 	TBLRD*+	
+002dc2   cff5     movff	0xff5, 0x1         	MOVFF	TABLAT, r0x01
+002dc4   f001
+002dc6   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+002dc8   0102     movlb	0x2                	BANKSEL	_activatedservos
+002dca   115e     iorwf	0x5e, 0, 0x1       	IORWF	_activatedservos, W, B
+                                           ; #	MOVWF	r0x02
+                                           ; #	MOVF	r0x02, W
+002dcc   6f5e     movwf	0x5e, 0x1          	MOVWF	_activatedservos, B
+                                           ;	.line	214; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TRISB = TRISB & (255 - servomasks[pin]); // set as output pin
+002dce   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+002dd0   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x01
+                                           ; #	MOVF	r0x01, W
+002dd2   1693     andwf	0x93, 0x1, 0       	ANDWF	_TRISB, F
+002dd4   d035     bra	0x2e40               	BRA	_00311_DS_
+                                           _00309_DS_:
+                                           ;	.line	215; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	} else if (pin>12) {
+002dd6   0e0d     movlw	0xd                	MOVLW	0x0d
+002dd8   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+002dda   e31a     bnc	0x2e10               	BNC	_00306_DS_
+                                           ;	.line	216; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_A] = activatedservos[MaskPort_A] | servomasks[pin];  // list pin as servo driver.
+002ddc   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002dde   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002de0   6e01     movwf	0x1, 0             	MOVWF	r0x01
+002de2   6a02     clrf	0x2, 0              	CLRF	r0x02
+002de4   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002de6   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002de8   6a03     clrf	0x3, 0              	CLRF	r0x03
+002dea   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002dec   2203     addwfc	0x3, 0x1, 0       	ADDWFC	r0x03, F
+002dee   c001     movff	0x1, 0xff6         	MOVFF	r0x01, TBLPTRL
+002df0   fff6
+002df2   c002     movff	0x2, 0xff7         	MOVFF	r0x02, TBLPTRH
+002df4   fff7
+002df6   c003     movff	0x3, 0xff8         	MOVFF	r0x03, TBLPTRU
+002df8   fff8
+002dfa   0009     tblrd	*+                 	TBLRD*+	
+002dfc   cff5     movff	0xff5, 0x1         	MOVFF	TABLAT, r0x01
+002dfe   f001
+002e00   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+002e02   0102     movlb	0x2                	BANKSEL	(_activatedservos + 2)
+002e04   1160     iorwf	0x60, 0, 0x1       	IORWF	(_activatedservos + 2), W, B
+                                           ; #	MOVWF	r0x02
+                                           ; #	MOVF	r0x02, W
+002e06   6f60     movwf	0x60, 0x1          	MOVWF	(_activatedservos + 2), B
+                                           ;	.line	217; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TRISA = TRISA & (255 - servomasks[pin]); // set as output pin
+002e08   5001     movf	0x1, 0, 0           	MOVF	r0x01, W
+002e0a   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x01
+                                           ; #	MOVF	r0x01, W
+002e0c   1692     andwf	0x92, 0x1, 0       	ANDWF	_TRISA, F
+002e0e   d018     bra	0x2e40               	BRA	_00311_DS_
+                                           _00306_DS_:
+                                           ;	.line	219; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	activatedservos[MaskPort_C] = activatedservos[MaskPort_C] | servomasks[pin];  // list pin as servo driver.
+002e10   6a01     clrf	0x1, 0              	CLRF	r0x01
+002e12   6a02     clrf	0x2, 0              	CLRF	r0x02
+002e14   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002e16   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002e18   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+002e1a   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002e1c   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002e1e   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002e20   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+002e22   fff6
+002e24   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+002e26   fff7
+002e28   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+002e2a   fff8
+002e2c   0009     tblrd	*+                 	TBLRD*+	
+002e2e   cff5     movff	0xff5, 0           	MOVFF	TABLAT, r0x00
+002e30   f000
+002e32   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002e34   0102     movlb	0x2                	BANKSEL	(_activatedservos + 1)
+002e36   115f     iorwf	0x5f, 0, 0x1       	IORWF	(_activatedservos + 1), W, B
+                                           ; #	MOVWF	r0x01
+                                           ; #	MOVF	r0x01, W
+002e38   6f5f     movwf	0x5f, 0x1          	MOVWF	(_activatedservos + 1), B
+                                           ;	.line	220; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TRISC = TRISC & (255 - servomasks[pin]); // set as output pin
+002e3a   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002e3c   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x00
+                                           ; #	MOVF	r0x00, W
+002e3e   1694     andwf	0x94, 0x1, 0       	ANDWF	_TRISC, F
+                                           _00311_DS_:
+002e40   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+002e42   f003
+002e44   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+002e46   f002
+002e48   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002e4a   f001
+002e4c   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002e4e   f000
+002e50   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002e52   ffd9
+002e54   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__SortServoTimings	code
+                                           _SortServoTimings:
+                                           ;	.line	124; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	static void SortServoTimings()
+00206e   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002070   ffe5
+002072   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002074   ffe5
+002076   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002078   ffe5
+00207a   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+00207c   ffe5
+00207e   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+002080   ffe5
+002082   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+002084   ffe5
+002086   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+002088   ffe5
+00208a   c007     movff	0x7, 0xfe5         	MOVFF	r0x07, POSTDEC1
+00208c   ffe5
+00208e   c008     movff	0x8, 0xfe5         	MOVFF	r0x08, POSTDEC1
+002090   ffe5
+002092   c009     movff	0x9, 0xfe5         	MOVFF	r0x09, POSTDEC1
+002094   ffe5
+002096   0102     movlb	0x2                	BANKSEL	_SortServoTimings_mascaratotal_1_1
+                                           ;	.line	131; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	uchar mascaratotal[3]={0x00,0x00,0x00};
+002098   6b63     clrf	0x63, 0x1           	CLRF	_SortServoTimings_mascaratotal_1_1, B
+                                           ; removed redundant BANKSEL
+00209a   6b64     clrf	0x64, 0x1           	CLRF	(_SortServoTimings_mascaratotal_1_1 + 1), B
+                                           ; removed redundant BANKSEL
+00209c   6b65     clrf	0x65, 0x1           	CLRF	(_SortServoTimings_mascaratotal_1_1 + 2), B
+                                           ;	.line	134; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(t=0;t<18;t++){
+00209e   6a00     clrf	0, 0                	CLRF	r0x00
+                                           _00250_DS_:
+0020a0   0e12     movlw	0x12               	MOVLW	0x12
+0020a2   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0020a4   e22e     bc	0x2102                	BC	_00253_DS_
+                                           ;	.line	135; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[timevalue][t]=255;
+0020a6   0e36     movlw	0x36               	MOVLW	LOW(_timings + 54)
+0020a8   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0020aa   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0020ac   6a02     clrf	0x2, 0              	CLRF	r0x02
+0020ae   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 54)
+0020b0   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0020b2   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0020b4   ffe9
+0020b6   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0020b8   ffea
+0020ba   68ef     setf	0xef, 0             	SETF	INDF0
+                                           ;	.line	136; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_B][t]=0x00;
+0020bc   0e00     movlw	0                  	MOVLW	LOW(_timings)
+0020be   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0020c0   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0020c2   6a02     clrf	0x2, 0              	CLRF	r0x02
+0020c4   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+0020c6   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0020c8   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0020ca   ffe9
+0020cc   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0020ce   ffea
+0020d0   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	137; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_C][t]=0x00;
+0020d2   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+0020d4   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0020d6   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0020d8   6a02     clrf	0x2, 0              	CLRF	r0x02
+0020da   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+0020dc   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0020de   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0020e0   ffe9
+0020e2   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0020e4   ffea
+0020e6   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	138; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_A][t]=0x00;
+0020e8   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+0020ea   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0020ec   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0020ee   6a02     clrf	0x2, 0              	CLRF	r0x02
+0020f0   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+0020f2   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0020f4   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0020f6   ffe9
+0020f8   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0020fa   ffea
+0020fc   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	134; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(t=0;t<18;t++){
+0020fe   2a00     incf	0, 0x1, 0           	INCF	r0x00, F
+002100   d7cf     bra	0x20a0               	BRA	_00250_DS_
+                                           _00253_DS_:
+                                           ;	.line	141; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	totalservos=0;
+002102   6a00     clrf	0, 0                	CLRF	r0x00
+                                           ;	.line	143; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	while(totalservos<18) {
+002104   6a01     clrf	0x1, 0              	CLRF	r0x01
+                                           _00247_DS_:
+002106   0e12     movlw	0x12               	MOVLW	0x12
+002108   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+00210a   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00210c   d1ca     bra	0x24a2               	BRA	_00249_DS_
+                                           ;	.line	144; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos=1;
+00210e   0e01     movlw	0x1                	MOVLW	0x01
+002110   6e02     movwf	0x2, 0             	MOVWF	r0x02
+                                           ;	.line	145; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(s=0;s<18;s++) { 
+002112   6a03     clrf	0x3, 0              	CLRF	r0x03
+                                           _00254_DS_:
+002114   0e12     movlw	0x12               	MOVLW	0x12
+002116   5c03     subwf	0x3, 0, 0          	SUBWF	r0x03, W
+002118   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00211a   d18e     bra	0x2438               	BRA	_00257_DS_
+                                           ;	.line	147; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (s<8){
+00211c   0e08     movlw	0x8                	MOVLW	0x08
+00211e   5c03     subwf	0x3, 0, 0          	SUBWF	r0x03, W
+002120   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002122   d082     bra	0x2228               	BRA	_00245_DS_
+                                           ;	.line	148; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (servomasks[s] & mascaratotal[MaskPort_B] & activatedservos[MaskPort_B]){
+002124   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002126   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+002128   6e04     movwf	0x4, 0             	MOVWF	r0x04
+00212a   6a05     clrf	0x5, 0              	CLRF	r0x05
+00212c   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+00212e   2205     addwfc	0x5, 0x1, 0       	ADDWFC	r0x05, F
+002130   6a06     clrf	0x6, 0              	CLRF	r0x06
+002132   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002134   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002136   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002138   fff6
+00213a   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+00213c   fff7
+00213e   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002140   fff8
+002142   0009     tblrd	*+                 	TBLRD*+	
+002144   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002146   f004
+002148   0102     movlb	0x2                	BANKSEL	_SortServoTimings_mascaratotal_1_1
+00214a   5163     movf	0x63, 0, 0x1        	MOVF	_SortServoTimings_mascaratotal_1_1, W, B
+00214c   1404     andwf	0x4, 0, 0          	ANDWF	r0x04, W
+00214e   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002150   0102     movlb	0x2                	BANKSEL	_activatedservos
+002152   515e     movf	0x5e, 0, 0x1        	MOVF	_activatedservos, W, B
+002154   1605     andwf	0x5, 0x1, 0        	ANDWF	r0x05, F
+002156   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002158   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+00215a   d16c     bra	0x2434               	BRA	_00256_DS_
+                                           ;	.line	150; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] < timings[timevalue][t]){
+00215c   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+00215e   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+002160   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002162   6a06     clrf	0x6, 0              	CLRF	r0x06
+002164   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+002166   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002168   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+00216a   ffe9
+00216c   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00216e   ffea
+002170   cfef     movff	0xfef, 0x5         	MOVFF	INDF0, r0x05
+002172   f005
+002174   0e36     movlw	0x36               	MOVLW	LOW(_timings + 54)
+002176   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+002178   6e06     movwf	0x6, 0             	MOVWF	r0x06
+00217a   6a07     clrf	0x7, 0              	CLRF	r0x07
+00217c   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 54)
+00217e   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+002180   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+002182   ffe9
+002184   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+002186   ffea
+002188   cfef     movff	0xfef, 0x8         	MOVFF	INDF0, r0x08
+00218a   f008
+00218c   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+00218e   5c05     subwf	0x5, 0, 0          	SUBWF	r0x05, W
+002190   e22b     bc	0x21e8                	BC	_00220_DS_
+                                           ;	.line	151; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[timevalue][t]=servovalues[s];
+002192   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+002194   ffe9
+002196   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+002198   ffea
+00219a   c005     movff	0x5, 0xfef         	MOVFF	r0x05, INDF0
+00219c   ffef
+                                           ;	.line	152; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_B][t]=servomasks[s];
+00219e   0e00     movlw	0                  	MOVLW	LOW(_timings)
+0021a0   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0021a2   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0021a4   6a09     clrf	0x9, 0              	CLRF	r0x09
+0021a6   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+0021a8   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0021aa   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0021ac   ffe9
+0021ae   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0021b0   ffea
+0021b2   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+0021b4   ffef
+                                           ;	.line	153; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_C][t]=0x00;
+0021b6   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+0021b8   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0021ba   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0021bc   6a09     clrf	0x9, 0              	CLRF	r0x09
+0021be   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+0021c0   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0021c2   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0021c4   ffe9
+0021c6   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0021c8   ffea
+0021ca   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	154; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_A][t]=0x00;
+0021cc   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+0021ce   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0021d0   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0021d2   6a09     clrf	0x9, 0              	CLRF	r0x09
+0021d4   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+0021d6   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0021d8   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0021da   ffe9
+0021dc   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0021de   ffea
+0021e0   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	155; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos=1;
+0021e2   0e01     movlw	0x1                	MOVLW	0x01
+0021e4   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0021e6   d126     bra	0x2434               	BRA	_00256_DS_
+                                           _00220_DS_:
+                                           ;	.line	157; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] == timings[timevalue][t]){
+0021e8   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0021ea   ffe9
+0021ec   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+0021ee   ffea
+0021f0   cfef     movff	0xfef, 0x6         	MOVFF	INDF0, r0x06
+0021f2   f006
+0021f4   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+0021f6   1806     xorwf	0x6, 0, 0          	XORWF	r0x06, W
+0021f8   e001     bz	0x21fc                	BZ	_00287_DS_
+0021fa   d11c     bra	0x2434               	BRA	_00256_DS_
+                                           _00287_DS_:
+                                           ;	.line	158; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_B][t] |= servomasks[s];
+0021fc   0e00     movlw	0                  	MOVLW	LOW(_timings)
+0021fe   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+002200   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002202   6a06     clrf	0x6, 0              	CLRF	r0x06
+002204   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+002206   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002208   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+00220a   ffe9
+00220c   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00220e   ffea
+002210   cfef     movff	0xfef, 0x7         	MOVFF	INDF0, r0x07
+002212   f007
+002214   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+002216   1204     iorwf	0x4, 0x1, 0        	IORWF	r0x04, F
+002218   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+00221a   ffe9
+00221c   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00221e   ffea
+002220   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+002222   ffef
+                                           ;	.line	159; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos++;
+002224   2a02     incf	0x2, 0x1, 0         	INCF	r0x02, F
+002226   d106     bra	0x2434               	BRA	_00256_DS_
+                                           _00245_DS_:
+                                           ;	.line	163; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (s>12){
+002228   0e0d     movlw	0xd                	MOVLW	0x0d
+00222a   5c03     subwf	0x3, 0, 0          	SUBWF	r0x03, W
+00222c   a0d8     btfss	0xd8, 0, 0         	BTFSS	STATUS, 0
+00222e   d082     bra	0x2334               	BRA	_00242_DS_
+                                           ;	.line	164; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (servomasks[s] & mascaratotal[MaskPort_A] & activatedservos[MaskPort_A]){
+002230   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002232   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+002234   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002236   6a05     clrf	0x5, 0              	CLRF	r0x05
+002238   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+00223a   2205     addwfc	0x5, 0x1, 0       	ADDWFC	r0x05, F
+00223c   6a06     clrf	0x6, 0              	CLRF	r0x06
+00223e   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002240   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002242   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002244   fff6
+002246   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002248   fff7
+00224a   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+00224c   fff8
+00224e   0009     tblrd	*+                 	TBLRD*+	
+002250   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002252   f004
+002254   0102     movlb	0x2                	BANKSEL	(_SortServoTimings_mascaratotal_1_1 + 2)
+002256   5165     movf	0x65, 0, 0x1        	MOVF	(_SortServoTimings_mascaratotal_1_1 + 2), W, B
+002258   1404     andwf	0x4, 0, 0          	ANDWF	r0x04, W
+00225a   6e05     movwf	0x5, 0             	MOVWF	r0x05
+00225c   0102     movlb	0x2                	BANKSEL	(_activatedservos + 2)
+00225e   5160     movf	0x60, 0, 0x1        	MOVF	(_activatedservos + 2), W, B
+002260   1605     andwf	0x5, 0x1, 0        	ANDWF	r0x05, F
+002262   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002264   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+002266   d0e6     bra	0x2434               	BRA	_00256_DS_
+                                           ;	.line	166; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] < timings[timevalue][t]){
+002268   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+00226a   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+00226c   6e05     movwf	0x5, 0             	MOVWF	r0x05
+00226e   6a06     clrf	0x6, 0              	CLRF	r0x06
+002270   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+002272   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002274   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+002276   ffe9
+002278   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00227a   ffea
+00227c   cfef     movff	0xfef, 0x5         	MOVFF	INDF0, r0x05
+00227e   f005
+002280   0e36     movlw	0x36               	MOVLW	LOW(_timings + 54)
+002282   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+002284   6e06     movwf	0x6, 0             	MOVWF	r0x06
+002286   6a07     clrf	0x7, 0              	CLRF	r0x07
+002288   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 54)
+00228a   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+00228c   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+00228e   ffe9
+002290   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+002292   ffea
+002294   cfef     movff	0xfef, 0x8         	MOVFF	INDF0, r0x08
+002296   f008
+002298   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+00229a   5c05     subwf	0x5, 0, 0          	SUBWF	r0x05, W
+00229c   e22b     bc	0x22f4                	BC	_00228_DS_
+                                           ;	.line	167; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[timevalue][t]=servovalues[s];
+00229e   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0022a0   ffe9
+0022a2   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+0022a4   ffea
+0022a6   c005     movff	0x5, 0xfef         	MOVFF	r0x05, INDF0
+0022a8   ffef
+                                           ;	.line	168; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_B][t]=0x00;
+0022aa   0e00     movlw	0                  	MOVLW	LOW(_timings)
+0022ac   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0022ae   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0022b0   6a09     clrf	0x9, 0              	CLRF	r0x09
+0022b2   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+0022b4   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0022b6   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0022b8   ffe9
+0022ba   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0022bc   ffea
+0022be   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	169; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_C][t]=0x00;
+0022c0   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+0022c2   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0022c4   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0022c6   6a09     clrf	0x9, 0              	CLRF	r0x09
+0022c8   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+0022ca   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0022cc   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0022ce   ffe9
+0022d0   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0022d2   ffea
+0022d4   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	170; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_A][t]=servomasks[s];
+0022d6   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+0022d8   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0022da   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0022dc   6a09     clrf	0x9, 0              	CLRF	r0x09
+0022de   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+0022e0   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0022e2   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0022e4   ffe9
+0022e6   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0022e8   ffea
+0022ea   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+0022ec   ffef
+                                           ;	.line	171; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos=1;
+0022ee   0e01     movlw	0x1                	MOVLW	0x01
+0022f0   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0022f2   d0a0     bra	0x2434               	BRA	_00256_DS_
+                                           _00228_DS_:
+                                           ;	.line	173; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] == timings[timevalue][t]){
+0022f4   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0022f6   ffe9
+0022f8   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+0022fa   ffea
+0022fc   cfef     movff	0xfef, 0x6         	MOVFF	INDF0, r0x06
+0022fe   f006
+002300   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002302   1806     xorwf	0x6, 0, 0          	XORWF	r0x06, W
+002304   e001     bz	0x2308                	BZ	_00293_DS_
+002306   d096     bra	0x2434               	BRA	_00256_DS_
+                                           _00293_DS_:
+                                           ;	.line	174; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_A][t] |= servomasks[s];
+002308   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+00230a   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+00230c   6e05     movwf	0x5, 0             	MOVWF	r0x05
+00230e   6a06     clrf	0x6, 0              	CLRF	r0x06
+002310   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+002312   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002314   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+002316   ffe9
+002318   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00231a   ffea
+00231c   cfef     movff	0xfef, 0x7         	MOVFF	INDF0, r0x07
+00231e   f007
+002320   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+002322   1204     iorwf	0x4, 0x1, 0        	IORWF	r0x04, F
+002324   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+002326   ffe9
+002328   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00232a   ffea
+00232c   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+00232e   ffef
+                                           ;	.line	175; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos++;
+002330   2a02     incf	0x2, 0x1, 0         	INCF	r0x02, F
+002332   d080     bra	0x2434               	BRA	_00256_DS_
+                                           _00242_DS_:
+                                           ;	.line	180; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (servomasks[s] & mascaratotal[MaskPort_C] & activatedservos[MaskPort_C]){ 
+002334   0e10     movlw	0x10               	MOVLW	LOW(_servomasks)
+002336   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+002338   6e04     movwf	0x4, 0             	MOVWF	r0x04
+00233a   6a05     clrf	0x5, 0              	CLRF	r0x05
+00233c   0e28     movlw	0x28               	MOVLW	HIGH(_servomasks)
+00233e   2205     addwfc	0x5, 0x1, 0       	ADDWFC	r0x05, F
+002340   6a06     clrf	0x6, 0              	CLRF	r0x06
+002342   0e00     movlw	0                  	MOVLW	UPPER(_servomasks)
+002344   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002346   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002348   fff6
+00234a   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+00234c   fff7
+00234e   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002350   fff8
+002352   0009     tblrd	*+                 	TBLRD*+	
+002354   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002356   f004
+002358   0102     movlb	0x2                	BANKSEL	(_SortServoTimings_mascaratotal_1_1 + 1)
+00235a   5164     movf	0x64, 0, 0x1        	MOVF	(_SortServoTimings_mascaratotal_1_1 + 1), W, B
+00235c   1404     andwf	0x4, 0, 0          	ANDWF	r0x04, W
+00235e   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002360   0102     movlb	0x2                	BANKSEL	(_activatedservos + 1)
+002362   515f     movf	0x5f, 0, 0x1        	MOVF	(_activatedservos + 1), W, B
+002364   1605     andwf	0x5, 0x1, 0        	ANDWF	r0x05, F
+002366   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002368   a4d8     btfss	0xd8, 0x2, 0       	BTFSS	STATUS, 2
+00236a   d064     bra	0x2434               	BRA	_00256_DS_
+                                           ;	.line	182; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] < timings[timevalue][t]){
+00236c   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+00236e   2403     addwf	0x3, 0, 0          	ADDWF	r0x03, W
+002370   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002372   6a06     clrf	0x6, 0              	CLRF	r0x06
+002374   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+002376   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002378   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+00237a   ffe9
+00237c   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00237e   ffea
+002380   cfef     movff	0xfef, 0x5         	MOVFF	INDF0, r0x05
+002382   f005
+002384   0e36     movlw	0x36               	MOVLW	LOW(_timings + 54)
+002386   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+002388   6e06     movwf	0x6, 0             	MOVWF	r0x06
+00238a   6a07     clrf	0x7, 0              	CLRF	r0x07
+00238c   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 54)
+00238e   2207     addwfc	0x7, 0x1, 0       	ADDWFC	r0x07, F
+002390   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+002392   ffe9
+002394   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+002396   ffea
+002398   cfef     movff	0xfef, 0x8         	MOVFF	INDF0, r0x08
+00239a   f008
+00239c   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+00239e   5c05     subwf	0x5, 0, 0          	SUBWF	r0x05, W
+0023a0   e22b     bc	0x23f8                	BC	_00236_DS_
+                                           ;	.line	183; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[timevalue][t]=servovalues[s];
+0023a2   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0023a4   ffe9
+0023a6   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+0023a8   ffea
+0023aa   c005     movff	0x5, 0xfef         	MOVFF	r0x05, INDF0
+0023ac   ffef
+                                           ;	.line	184; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_B][t]=0x00;
+0023ae   0e00     movlw	0                  	MOVLW	LOW(_timings)
+0023b0   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0023b2   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0023b4   6a09     clrf	0x9, 0              	CLRF	r0x09
+0023b6   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+0023b8   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0023ba   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0023bc   ffe9
+0023be   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0023c0   ffea
+0023c2   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	185; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_C][t]=servomasks[s];
+0023c4   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+0023c6   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0023c8   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0023ca   6a09     clrf	0x9, 0              	CLRF	r0x09
+0023cc   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+0023ce   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0023d0   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0023d2   ffe9
+0023d4   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0023d6   ffea
+0023d8   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+0023da   ffef
+                                           ;	.line	186; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_A][t]=0x00;
+0023dc   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+0023de   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+0023e0   6e08     movwf	0x8, 0             	MOVWF	r0x08
+0023e2   6a09     clrf	0x9, 0              	CLRF	r0x09
+0023e4   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+0023e6   2209     addwfc	0x9, 0x1, 0       	ADDWFC	r0x09, F
+0023e8   c008     movff	0x8, 0xfe9         	MOVFF	r0x08, FSR0L
+0023ea   ffe9
+0023ec   c009     movff	0x9, 0xfea         	MOVFF	r0x09, FSR0H
+0023ee   ffea
+0023f0   6aef     clrf	0xef, 0             	CLRF	INDF0
+                                           ;	.line	187; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos=1;
+0023f2   0e01     movlw	0x1                	MOVLW	0x01
+0023f4   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0023f6   d01e     bra	0x2434               	BRA	_00256_DS_
+                                           _00236_DS_:
+                                           ;	.line	189; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	else if (servovalues[s] == timings [timevalue][t]){
+0023f8   c006     movff	0x6, 0xfe9         	MOVFF	r0x06, FSR0L
+0023fa   ffe9
+0023fc   c007     movff	0x7, 0xfea         	MOVFF	r0x07, FSR0H
+0023fe   ffea
+002400   cfef     movff	0xfef, 0x6         	MOVFF	INDF0, r0x06
+002402   f006
+002404   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002406   1806     xorwf	0x6, 0, 0          	XORWF	r0x06, W
+002408   e115     bnz	0x2434               	BNZ	_00256_DS_
+                                           ;	.line	190; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timings[MaskPort_C][t] |= servomasks[s];
+00240a   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+00240c   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+00240e   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002410   6a06     clrf	0x6, 0              	CLRF	r0x06
+002412   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+002414   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002416   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+002418   ffe9
+00241a   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00241c   ffea
+00241e   cfef     movff	0xfef, 0x7         	MOVFF	INDF0, r0x07
+002420   f007
+002422   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+002424   1204     iorwf	0x4, 0x1, 0        	IORWF	r0x04, F
+002426   c005     movff	0x5, 0xfe9         	MOVFF	r0x05, FSR0L
+002428   ffe9
+00242a   c006     movff	0x6, 0xfea         	MOVFF	r0x06, FSR0H
+00242c   ffea
+00242e   c004     movff	0x4, 0xfef         	MOVFF	r0x04, INDF0
+002430   ffef
+                                           ;	.line	191; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	numservos++;
+002432   2a02     incf	0x2, 0x1, 0         	INCF	r0x02, F
+                                           _00256_DS_:
+                                           ;	.line	145; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(s=0;s<18;s++) { 
+002434   2a03     incf	0x3, 0x1, 0         	INCF	r0x03, F
+002436   d66e     bra	0x2114               	BRA	_00254_DS_
+                                           _00257_DS_:
+                                           ;	.line	196; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	mascaratotal[MaskPort_B] |= timings[MaskPort_B][t];
+002438   0e00     movlw	0                  	MOVLW	LOW(_timings)
+00243a   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+00243c   6e03     movwf	0x3, 0             	MOVWF	r0x03
+00243e   6a04     clrf	0x4, 0              	CLRF	r0x04
+002440   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+002442   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002444   c003     movff	0x3, 0xfe9         	MOVFF	r0x03, FSR0L
+002446   ffe9
+002448   c004     movff	0x4, 0xfea         	MOVFF	r0x04, FSR0H
+00244a   ffea
+00244c   cfef     movff	0xfef, 0x3         	MOVFF	INDF0, r0x03
+00244e   f003
+002450   0102     movlb	0x2                	BANKSEL	_SortServoTimings_mascaratotal_1_1
+002452   5163     movf	0x63, 0, 0x1        	MOVF	_SortServoTimings_mascaratotal_1_1, W, B
+002454   1203     iorwf	0x3, 0x1, 0        	IORWF	r0x03, F
+002456   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+                                           ; removed redundant BANKSEL
+002458   6f63     movwf	0x63, 0x1          	MOVWF	_SortServoTimings_mascaratotal_1_1, B
+                                           ;	.line	197; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	mascaratotal[MaskPort_C] |= timings[MaskPort_C][t];
+00245a   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+00245c   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+00245e   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002460   6a04     clrf	0x4, 0              	CLRF	r0x04
+002462   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+002464   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002466   c003     movff	0x3, 0xfe9         	MOVFF	r0x03, FSR0L
+002468   ffe9
+00246a   c004     movff	0x4, 0xfea         	MOVFF	r0x04, FSR0H
+00246c   ffea
+00246e   cfef     movff	0xfef, 0x3         	MOVFF	INDF0, r0x03
+002470   f003
+                                           ; removed redundant BANKSEL
+002472   5164     movf	0x64, 0, 0x1        	MOVF	(_SortServoTimings_mascaratotal_1_1 + 1), W, B
+002474   1203     iorwf	0x3, 0x1, 0        	IORWF	r0x03, F
+002476   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+                                           ; removed redundant BANKSEL
+002478   6f64     movwf	0x64, 0x1          	MOVWF	(_SortServoTimings_mascaratotal_1_1 + 1), B
+                                           ;	.line	198; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	mascaratotal[MaskPort_A] |= timings[MaskPort_A][t];
+00247a   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+00247c   2401     addwf	0x1, 0, 0          	ADDWF	r0x01, W
+00247e   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002480   6a04     clrf	0x4, 0              	CLRF	r0x04
+002482   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+002484   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002486   c003     movff	0x3, 0xfe9         	MOVFF	r0x03, FSR0L
+002488   ffe9
+00248a   c004     movff	0x4, 0xfea         	MOVFF	r0x04, FSR0H
+00248c   ffea
+00248e   cfef     movff	0xfef, 0x3         	MOVFF	INDF0, r0x03
+002490   f003
+                                           ; removed redundant BANKSEL
+002492   5165     movf	0x65, 0, 0x1        	MOVF	(_SortServoTimings_mascaratotal_1_1 + 2), W, B
+002494   1203     iorwf	0x3, 0x1, 0        	IORWF	r0x03, F
+002496   5003     movf	0x3, 0, 0           	MOVF	r0x03, W
+                                           ; removed redundant BANKSEL
+002498   6f65     movwf	0x65, 0x1          	MOVWF	(_SortServoTimings_mascaratotal_1_1 + 2), B
+                                           ;	.line	199; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	totalservos += numservos;
+00249a   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00249c   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+                                           ;	.line	200; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	t++;
+00249e   2a01     incf	0x1, 0x1, 0         	INCF	r0x01, F
+0024a0   d632     bra	0x2106               	BRA	_00247_DS_
+                                           _00249_DS_:
+0024a2   0102     movlb	0x2                	BANKSEL	_needreordering
+                                           ;	.line	203; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	needreordering=0;  // This indicates that servo timings is ordered.	
+0024a4   6b5c     clrf	0x5c, 0x1           	CLRF	_needreordering, B
+0024a6   cfe4     movff	0xfe4, 0x9         	MOVFF	PREINC1, r0x09
+0024a8   f009
+0024aa   cfe4     movff	0xfe4, 0x8         	MOVFF	PREINC1, r0x08
+0024ac   f008
+0024ae   cfe4     movff	0xfe4, 0x7         	MOVFF	PREINC1, r0x07
+0024b0   f007
+0024b2   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+0024b4   f006
+0024b6   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+0024b8   f005
+0024ba   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+0024bc   f004
+0024be   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+0024c0   f003
+0024c2   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+0024c4   f002
+0024c6   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+0024c8   f001
+0024ca   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+0024cc   f000
+0024ce   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServosPulseUp	code
+                                           _ServosPulseUp:
+                                           ;	.line	118; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTB = activatedservos[MaskPort_B] & 0xFF;
+00350e   c25e     movff	0x25e, 0xf81       	MOVFF	_activatedservos, _PORTB
+003510   ff81
+                                           ;	.line	119; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTC = activatedservos[MaskPort_C] & 0xFF;
+003512   c25f     movff	0x25f, 0xf82       	MOVFF	(_activatedservos + 1), _PORTC
+003514   ff82
+                                           ;	.line	120; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTA = activatedservos[MaskPort_A] & 0xFF;	
+003516   c260     movff	0x260, 0xf80       	MOVFF	(_activatedservos + 2), _PORTA
+003518   ff80
+00351a   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__ServosPulseDown	code
+                                           _ServosPulseDown:
+                                           ;	.line	92; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	static void ServosPulseDown()
+002f2a   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002f2c   ffe5
+002f2e   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002f30   ffd9
+002f32   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002f34   ffe5
+002f36   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002f38   ffe5
+002f3a   0102     movlb	0x2                	BANKSEL	_timingindex
+                                           ;	.line	94; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timingindex = 0;
+002f3c   6b67     clrf	0x67, 0x1           	CLRF	_timingindex, B
+002f3e   0102     movlb	0x2                	BANKSEL	_timedivision
+                                           ;	.line	96; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(timedivision=0;timedivision < 251;timedivision++){
+002f40   6b5d     clrf	0x5d, 0x1           	CLRF	_timedivision, B
+                                           _00196_DS_:
+002f42   0efb     movlw	0xfb               	MOVLW	0xfb
+002f44   0102     movlb	0x2                	BANKSEL	_timedivision
+002f46   5d5d     subwf	0x5d, 0, 0x1       	SUBWF	_timedivision, W, B
+002f48   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002f4a   d048     bra	0x2fdc               	BRA	_00200_DS_
+                                           ;	.line	97; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	if (timings[timevalue][timingindex] == timedivision){
+002f4c   c267     movff	0x267, 0           	MOVFF	_timingindex, r0x00
+002f4e   f000
+002f50   6a01     clrf	0x1, 0              	CLRF	r0x01
+002f52   0e36     movlw	0x36               	MOVLW	LOW(_timings + 54)
+002f54   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002f56   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 54)
+002f58   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002f5a   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+002f5c   ffe9
+002f5e   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+002f60   ffea
+002f62   cfef     movff	0xfef, 0           	MOVFF	INDF0, r0x00
+002f64   f000
+002f66   5000     movf	0, 0, 0             	MOVF	r0x00, W
+                                           ; removed redundant BANKSEL
+002f68   195d     xorwf	0x5d, 0, 0x1       	XORWF	_timedivision, W, B
+002f6a   e12f     bnz	0x2fca               	BNZ	_00195_DS_
+                                           ;	.line	98; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTB = PORTB ^ timings[MaskPort_B][timingindex];
+002f6c   c267     movff	0x267, 0           	MOVFF	_timingindex, r0x00
+002f6e   f000
+002f70   6a01     clrf	0x1, 0              	CLRF	r0x01
+002f72   0e00     movlw	0                  	MOVLW	LOW(_timings)
+002f74   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002f76   0e02     movlw	0x2                	MOVLW	HIGH(_timings)
+002f78   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002f7a   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+002f7c   ffe9
+002f7e   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+002f80   ffea
+002f82   cfef     movff	0xfef, 0           	MOVFF	INDF0, r0x00
+002f84   f000
+002f86   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002f88   1a81     xorwf	0x81, 0x1, 0       	XORWF	_PORTB, F
+                                           ;	.line	99; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTC = PORTC ^ timings[MaskPort_C][timingindex];
+002f8a   c267     movff	0x267, 0           	MOVFF	_timingindex, r0x00
+002f8c   f000
+002f8e   6a01     clrf	0x1, 0              	CLRF	r0x01
+002f90   0e12     movlw	0x12               	MOVLW	LOW(_timings + 18)
+002f92   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002f94   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 18)
+002f96   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002f98   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+002f9a   ffe9
+002f9c   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+002f9e   ffea
+002fa0   cfef     movff	0xfef, 0           	MOVFF	INDF0, r0x00
+002fa2   f000
+002fa4   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002fa6   1a82     xorwf	0x82, 0x1, 0       	XORWF	_PORTC, F
+                                           ;	.line	100; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PORTA = PORTA ^ timings[MaskPort_A][timingindex];
+002fa8   c267     movff	0x267, 0           	MOVFF	_timingindex, r0x00
+002faa   f000
+002fac   6a01     clrf	0x1, 0              	CLRF	r0x01
+002fae   0e24     movlw	0x24               	MOVLW	LOW(_timings + 36)
+002fb0   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002fb2   0e02     movlw	0x2                	MOVLW	HIGH(_timings + 36)
+002fb4   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002fb6   c000     movff	0, 0xfe9           	MOVFF	r0x00, FSR0L
+002fb8   ffe9
+002fba   c001     movff	0x1, 0xfea         	MOVFF	r0x01, FSR0H
+002fbc   ffea
+002fbe   cfef     movff	0xfef, 0           	MOVFF	INDF0, r0x00
+002fc0   f000
+002fc2   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002fc4   1a80     xorwf	0x80, 0x1, 0       	XORWF	_PORTA, F
+002fc6   0102     movlb	0x2                	BANKSEL	_timingindex
+                                           ;	.line	101; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	timingindex++;
+002fc8   2b67     incf	0x67, 0x1, 0x1      	INCF	_timingindex, F, B
+                                           _00195_DS_:
+002fca   0e06     movlw	0x6                	movlw 6
+002fcc   6f66     movwf	0x66, 0x1          	movwf _loopvar
+                                           bucle:
+002fce   0000     nop                      	NOP
+002fd0   2f66     decfsz	0x66, 0x1, 0x1    	decfsz _loopvar,1
+002fd2   efe7     goto	0x2fce              	goto bucle
+002fd4   f017
+                                           	
+002fd6   0102     movlb	0x2                	BANKSEL	_timedivision
+                                           ;	.line	96; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(timedivision=0;timedivision < 251;timedivision++){
+002fd8   2b5d     incf	0x5d, 0x1, 0x1      	INCF	_timedivision, F, B
+002fda   d7b3     bra	0x2f42               	BRA	_00196_DS_
+                                           _00200_DS_:
+002fdc   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002fde   f001
+002fe0   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002fe2   f000
+002fe4   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002fe6   ffd9
+002fe8   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__servos_init	code
+                                           _servos_init:
+                                           ;	.line	71; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	void servos_init()
+00329c   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+00329e   ffe5
+0032a0   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+0032a2   ffe5
+0032a4   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+0032a6   ffe5
+                                           ;	.line	75; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	for(a=0;a<18;a++) servovalues[a]=255;
+0032a8   6a00     clrf	0, 0                	CLRF	r0x00
+                                           _00180_DS_:
+0032aa   0e12     movlw	0x12               	MOVLW	0x12
+0032ac   5c00     subwf	0, 0, 0            	SUBWF	r0x00, W
+0032ae   e20d     bc	0x32ca                	BC	_00183_DS_
+0032b0   0e48     movlw	0x48               	MOVLW	LOW(_servovalues)
+0032b2   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0032b4   6e01     movwf	0x1, 0             	MOVWF	r0x01
+0032b6   6a02     clrf	0x2, 0              	CLRF	r0x02
+0032b8   0e02     movlw	0x2                	MOVLW	HIGH(_servovalues)
+0032ba   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0032bc   c001     movff	0x1, 0xfe9         	MOVFF	r0x01, FSR0L
+0032be   ffe9
+0032c0   c002     movff	0x2, 0xfea         	MOVFF	r0x02, FSR0H
+0032c2   ffea
+0032c4   68ef     setf	0xef, 0             	SETF	INDF0
+0032c6   2a00     incf	0, 0x1, 0           	INCF	r0x00, F
+0032c8   d7f0     bra	0x32aa               	BRA	_00180_DS_
+                                           _00183_DS_:
+                                           ;	.line	78; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1H=0xFF;
+0032ca   68cf     setf	0xcf, 0             	SETF	_TMR1H
+                                           ;	.line	79; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	TMR1L=0x00;
+0032cc   6ace     clrf	0xce, 0             	CLRF	_TMR1L
+                                           ;	.line	81; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	T1CON=0x01;
+0032ce   0e01     movlw	0x1                	MOVLW	0x01
+0032d0   6ecd     movwf	0xcd, 0            	MOVWF	_T1CON
+                                           ;	.line	83; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	PIE1bits.TMR1IE=1;
+0032d2   809d     bsf	0x9d, 0, 0           	BSF	_PIE1bits, 0
+                                           ;	.line	85; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	INTCONbits.PEIE=1;
+0032d4   8cf2     bsf	0xf2, 0x6, 0         	BSF	_INTCONbits, 6
+                                           ;	.line	87; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/servos.c	INTCONbits.GIE=1;
+0032d6   8ef2     bsf	0xf2, 0x7, 0         	BSF	_INTCONbits, 7
+0032d8   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+0032da   f002
+0032dc   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+0032de   f001
+0032e0   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+0032e2   f000
+0032e4   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__pinmode	code
+                                           _pinmode:
+                                           ;	.line	69; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	void pinmode(int input, int state)
+002822   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002824   ffe5
+002826   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002828   ffd9
+00282a   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+00282c   ffe5
+00282e   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002830   ffe5
+002832   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002834   ffe5
+002836   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+002838   ffe5
+00283a   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+00283c   ffe5
+00283e   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+002840   ffe5
+002842   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+002844   ffe5
+002846   0e02     movlw	0x2                	MOVLW	0x02
+002848   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+00284a   f000
+00284c   0e03     movlw	0x3                	MOVLW	0x03
+00284e   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+002850   f001
+002852   0e04     movlw	0x4                	MOVLW	0x04
+002854   cfdb     movff	0xfdb, 0x2         	MOVFF	PLUSW2, r0x02
+002856   f002
+002858   0e05     movlw	0x5                	MOVLW	0x05
+00285a   cfdb     movff	0xfdb, 0x3         	MOVFF	PLUSW2, r0x03
+00285c   f003
+                                           ;	.line	71; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	switch (port[input])
+00285e   0efe     movlw	0xfe               	MOVLW	LOW(_port)
+002860   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002862   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002864   0e27     movlw	0x27               	MOVLW	HIGH(_port)
+002866   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002868   6e05     movwf	0x5, 0             	MOVWF	r0x05
+00286a   6a06     clrf	0x6, 0              	CLRF	r0x06
+00286c   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+00286e   6806     setf	0x6, 0              	SETF	r0x06
+002870   0e00     movlw	0                  	MOVLW	UPPER(_port)
+002872   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002874   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002876   fff6
+002878   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+00287a   fff7
+00287c   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+00287e   fff8
+002880   0009     tblrd	*+                 	TBLRD*+	
+002882   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002884   f004
+002886   0e03     movlw	0x3                	MOVLW	0x03
+002888   5c04     subwf	0x4, 0, 0          	SUBWF	r0x04, W
+00288a   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+00288c   d0b4     bra	0x29f6               	BRA	_00168_DS_
+00288e   c007     movff	0x7, 0xfe5         	MOVFF	r0x07, POSTDEC1
+002890   ffe5
+002892   c008     movff	0x8, 0xfe5         	MOVFF	r0x08, POSTDEC1
+002894   ffe5
+002896   6a08     clrf	0x8, 0              	CLRF	r0x08
+002898   3404     rlcf	0x4, 0, 0           	RLCF	r0x04, W
+00289a   3608     rlcf	0x8, 0x1, 0         	RLCF	r0x08, F
+00289c   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+00289e   3608     rlcf	0x8, 0x1, 0         	RLCF	r0x08, F
+0028a0   0bfc     andlw	0xfc               	ANDLW	0xfc
+0028a2   6e07     movwf	0x7, 0             	MOVWF	r0x07
+0028a4   0e00     movlw	0                  	MOVLW	UPPER(_00175_DS_)
+0028a6   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+0028a8   0e28     movlw	0x28               	MOVLW	HIGH(_00175_DS_)
+0028aa   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+0028ac   0ec4     movlw	0xc4               	MOVLW	LOW(_00175_DS_)
+0028ae   2607     addwf	0x7, 0x1, 0        	ADDWF	r0x07, F
+0028b0   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+0028b2   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+0028b4   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+0028b6   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+0028b8   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+0028ba   cfe4     movff	0xfe4, 0x8         	MOVFF	PREINC1, r0x08
+0028bc   f008
+0028be   cfe4     movff	0xfe4, 0x7         	MOVFF	PREINC1, r0x07
+0028c0   f007
+0028c2   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00175_DS_:
+0028c4   ef68     goto	0x28d0              	GOTO	_00155_DS_
+0028c6   f014
+0028c8   ef9a     goto	0x2934              	GOTO	_00159_DS_
+0028ca   f014
+0028cc   efcc     goto	0x2998              	GOTO	_00163_DS_
+0028ce   f014
+                                           _00155_DS_:
+                                           ;	.line	73; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 0: if (state) TRISB=TRISB | mask[input];
+0028d0   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+0028d2   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+0028d4   e017     bz	0x2904                	BZ	_00157_DS_
+0028d6   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+0028d8   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0028da   6e04     movwf	0x4, 0             	MOVWF	r0x04
+0028dc   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+0028de   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+0028e0   6e05     movwf	0x5, 0             	MOVWF	r0x05
+0028e2   6a06     clrf	0x6, 0              	CLRF	r0x06
+0028e4   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+0028e6   6806     setf	0x6, 0              	SETF	r0x06
+0028e8   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+0028ea   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+0028ec   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+0028ee   fff6
+0028f0   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+0028f2   fff7
+0028f4   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+0028f6   fff8
+0028f8   0009     tblrd	*+                 	TBLRD*+	
+0028fa   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+0028fc   f004
+0028fe   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002900   1293     iorwf	0x93, 0x1, 0       	IORWF	_TRISB, F
+002902   d079     bra	0x29f6               	BRA	_00168_DS_
+                                           _00157_DS_:
+                                           ;	.line	74; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else TRISB=TRISB & (255-mask[input]);
+002904   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002906   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002908   6e04     movwf	0x4, 0             	MOVWF	r0x04
+00290a   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+00290c   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+00290e   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002910   6a06     clrf	0x6, 0              	CLRF	r0x06
+002912   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002914   6806     setf	0x6, 0              	SETF	r0x06
+002916   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002918   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+00291a   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+00291c   fff6
+00291e   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002920   fff7
+002922   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002924   fff8
+002926   0009     tblrd	*+                 	TBLRD*+	
+002928   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+00292a   f004
+00292c   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+00292e   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x04
+                                           ; #	MOVF	r0x04, W
+002930   1693     andwf	0x93, 0x1, 0       	ANDWF	_TRISB, F
+                                           ;	.line	75; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	break;
+002932   d061     bra	0x29f6               	BRA	_00168_DS_
+                                           _00159_DS_:
+                                           ;	.line	76; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 1: if (state) TRISC=TRISC | mask[input];
+002934   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002936   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+002938   e017     bz	0x2968                	BZ	_00161_DS_
+00293a   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+00293c   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+00293e   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002940   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002942   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002944   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002946   6a06     clrf	0x6, 0              	CLRF	r0x06
+002948   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+00294a   6806     setf	0x6, 0              	SETF	r0x06
+00294c   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+00294e   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002950   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002952   fff6
+002954   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002956   fff7
+002958   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+00295a   fff8
+00295c   0009     tblrd	*+                 	TBLRD*+	
+00295e   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002960   f004
+002962   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002964   1294     iorwf	0x94, 0x1, 0       	IORWF	_TRISC, F
+002966   d047     bra	0x29f6               	BRA	_00168_DS_
+                                           _00161_DS_:
+                                           ;	.line	77; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else TRISC=TRISC & (255-mask[input]);
+002968   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+00296a   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+00296c   6e04     movwf	0x4, 0             	MOVWF	r0x04
+00296e   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002970   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002972   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002974   6a06     clrf	0x6, 0              	CLRF	r0x06
+002976   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002978   6806     setf	0x6, 0              	SETF	r0x06
+00297a   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+00297c   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+00297e   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002980   fff6
+002982   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002984   fff7
+002986   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002988   fff8
+00298a   0009     tblrd	*+                 	TBLRD*+	
+00298c   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+00298e   f004
+002990   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002992   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x04
+                                           ; #	MOVF	r0x04, W
+002994   1694     andwf	0x94, 0x1, 0       	ANDWF	_TRISC, F
+                                           ;	.line	78; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	break;
+002996   d02f     bra	0x29f6               	BRA	_00168_DS_
+                                           _00163_DS_:
+                                           ;	.line	79; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 2: if (state) TRISA=TRISA | mask[input];
+002998   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+00299a   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+00299c   e017     bz	0x29cc                	BZ	_00165_DS_
+00299e   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+0029a0   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+0029a2   6e02     movwf	0x2, 0             	MOVWF	r0x02
+0029a4   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+0029a6   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+0029a8   6e03     movwf	0x3, 0             	MOVWF	r0x03
+0029aa   6a04     clrf	0x4, 0              	CLRF	r0x04
+0029ac   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+0029ae   6804     setf	0x4, 0              	SETF	r0x04
+0029b0   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+0029b2   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+0029b4   c002     movff	0x2, 0xff6         	MOVFF	r0x02, TBLPTRL
+0029b6   fff6
+0029b8   c003     movff	0x3, 0xff7         	MOVFF	r0x03, TBLPTRH
+0029ba   fff7
+0029bc   c004     movff	0x4, 0xff8         	MOVFF	r0x04, TBLPTRU
+0029be   fff8
+0029c0   0009     tblrd	*+                 	TBLRD*+	
+0029c2   cff5     movff	0xff5, 0x2         	MOVFF	TABLAT, r0x02
+0029c4   f002
+0029c6   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+0029c8   1292     iorwf	0x92, 0x1, 0       	IORWF	_TRISA, F
+0029ca   d015     bra	0x29f6               	BRA	_00168_DS_
+                                           _00165_DS_:
+                                           ;	.line	80; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else TRISA=TRISA & (255-mask[input]);
+0029cc   6a02     clrf	0x2, 0              	CLRF	r0x02
+0029ce   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+0029d0   6802     setf	0x2, 0              	SETF	r0x02
+0029d2   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+0029d4   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+0029d6   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+0029d8   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+0029da   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+0029dc   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+0029de   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+0029e0   fff6
+0029e2   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+0029e4   fff7
+0029e6   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+0029e8   fff8
+0029ea   0009     tblrd	*+                 	TBLRD*+	
+0029ec   cff5     movff	0xff5, 0           	MOVFF	TABLAT, r0x00
+0029ee   f000
+0029f0   5000     movf	0, 0, 0             	MOVF	r0x00, W
+0029f2   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x00
+                                           ; #	MOVF	r0x00, W
+0029f4   1692     andwf	0x92, 0x1, 0       	ANDWF	_TRISA, F
+                                           _00168_DS_:
+                                           ;	.line	90; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	}
+0029f6   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+0029f8   f006
+0029fa   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+0029fc   f005
+0029fe   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+002a00   f004
+002a02   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+002a04   f003
+002a06   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+002a08   f002
+002a0a   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002a0c   f001
+002a0e   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002a10   f000
+002a12   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002a14   ffd9
+002a16   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__digitalread	code
+                                           _digitalread:
+                                           ;	.line	44; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	int digitalread(int input)
+002c0e   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002c10   ffe5
+002c12   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002c14   ffd9
+002c16   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002c18   ffe5
+002c1a   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002c1c   ffe5
+002c1e   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002c20   ffe5
+002c22   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+002c24   ffe5
+002c26   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+002c28   ffe5
+002c2a   0e02     movlw	0x2                	MOVLW	0x02
+002c2c   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+002c2e   f000
+002c30   0e03     movlw	0x3                	MOVLW	0x03
+002c32   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+002c34   f001
+                                           ;	.line	46; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	switch (port[input])
+002c36   0efe     movlw	0xfe               	MOVLW	LOW(_port)
+002c38   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002c3a   6e02     movwf	0x2, 0             	MOVWF	r0x02
+002c3c   0e27     movlw	0x27               	MOVLW	HIGH(_port)
+002c3e   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002c40   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002c42   6a04     clrf	0x4, 0              	CLRF	r0x04
+002c44   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002c46   6804     setf	0x4, 0              	SETF	r0x04
+002c48   0e00     movlw	0                  	MOVLW	UPPER(_port)
+002c4a   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002c4c   c002     movff	0x2, 0xff6         	MOVFF	r0x02, TBLPTRL
+002c4e   fff6
+002c50   c003     movff	0x3, 0xff7         	MOVFF	r0x03, TBLPTRH
+002c52   fff7
+002c54   c004     movff	0x4, 0xff8         	MOVFF	r0x04, TBLPTRU
+002c56   fff8
+002c58   0009     tblrd	*+                 	TBLRD*+	
+002c5a   cff5     movff	0xff5, 0x2         	MOVFF	TABLAT, r0x02
+002c5c   f002
+002c5e   0e03     movlw	0x3                	MOVLW	0x03
+002c60   5c02     subwf	0x2, 0, 0          	SUBWF	r0x02, W
+002c62   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002c64   d079     bra	0x2d58               	BRA	_00142_DS_
+002c66   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+002c68   ffe5
+002c6a   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+002c6c   ffe5
+002c6e   6a06     clrf	0x6, 0              	CLRF	r0x06
+002c70   3402     rlcf	0x2, 0, 0           	RLCF	r0x02, W
+002c72   3606     rlcf	0x6, 0x1, 0         	RLCF	r0x06, F
+002c74   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+002c76   3606     rlcf	0x6, 0x1, 0         	RLCF	r0x06, F
+002c78   0bfc     andlw	0xfc               	ANDLW	0xfc
+002c7a   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002c7c   0e00     movlw	0                  	MOVLW	UPPER(_00150_DS_)
+002c7e   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+002c80   0e2c     movlw	0x2c               	MOVLW	HIGH(_00150_DS_)
+002c82   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+002c84   0e9c     movlw	0x9c               	MOVLW	LOW(_00150_DS_)
+002c86   2605     addwf	0x5, 0x1, 0        	ADDWF	r0x05, F
+002c88   5006     movf	0x6, 0, 0           	MOVF	r0x06, W
+002c8a   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+002c8c   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002c8e   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+002c90   5005     movf	0x5, 0, 0           	MOVF	r0x05, W
+002c92   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+002c94   f006
+002c96   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+002c98   f005
+002c9a   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00150_DS_:
+002c9c   ef54     goto	0x2ca8              	GOTO	_00130_DS_
+002c9e   f016
+002ca0   ef72     goto	0x2ce4              	GOTO	_00134_DS_
+002ca2   f016
+002ca4   ef90     goto	0x2d20              	GOTO	_00138_DS_
+002ca6   f016
+                                           _00130_DS_:
+                                           ;	.line	48; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 0: if ((PORTB & mask[input])!=0) return (1);
+002ca8   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002caa   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002cac   6e02     movwf	0x2, 0             	MOVWF	r0x02
+002cae   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002cb0   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002cb2   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002cb4   6a04     clrf	0x4, 0              	CLRF	r0x04
+002cb6   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002cb8   6804     setf	0x4, 0              	SETF	r0x04
+002cba   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002cbc   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002cbe   c002     movff	0x2, 0xff6         	MOVFF	r0x02, TBLPTRL
+002cc0   fff6
+002cc2   c003     movff	0x3, 0xff7         	MOVFF	r0x03, TBLPTRH
+002cc4   fff7
+002cc6   c004     movff	0x4, 0xff8         	MOVFF	r0x04, TBLPTRU
+002cc8   fff8
+002cca   0009     tblrd	*+                 	TBLRD*+	
+002ccc   cff5     movff	0xff5, 0x2         	MOVFF	TABLAT, r0x02
+002cce   f002
+002cd0   5081     movf	0x81, 0, 0          	MOVF	_PORTB, W
+002cd2   1602     andwf	0x2, 0x1, 0        	ANDWF	r0x02, F
+002cd4   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002cd6   e003     bz	0x2cde                	BZ	_00132_DS_
+002cd8   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002cda   0e01     movlw	0x1                	MOVLW	0x01
+002cdc   d03f     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00132_DS_:
+                                           ;	.line	49; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else return (0);
+002cde   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002ce0   6ae8     clrf	0xe8, 0             	CLRF	WREG
+002ce2   d03c     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00134_DS_:
+                                           ;	.line	51; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 1: if ((PORTC & mask[input])!=0) return (1);
+002ce4   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002ce6   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002ce8   6e02     movwf	0x2, 0             	MOVWF	r0x02
+002cea   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002cec   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002cee   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002cf0   6a04     clrf	0x4, 0              	CLRF	r0x04
+002cf2   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002cf4   6804     setf	0x4, 0              	SETF	r0x04
+002cf6   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002cf8   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002cfa   c002     movff	0x2, 0xff6         	MOVFF	r0x02, TBLPTRL
+002cfc   fff6
+002cfe   c003     movff	0x3, 0xff7         	MOVFF	r0x03, TBLPTRH
+002d00   fff7
+002d02   c004     movff	0x4, 0xff8         	MOVFF	r0x04, TBLPTRU
+002d04   fff8
+002d06   0009     tblrd	*+                 	TBLRD*+	
+002d08   cff5     movff	0xff5, 0x2         	MOVFF	TABLAT, r0x02
+002d0a   f002
+002d0c   5082     movf	0x82, 0, 0          	MOVF	_PORTC, W
+002d0e   1602     andwf	0x2, 0x1, 0        	ANDWF	r0x02, F
+002d10   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002d12   e003     bz	0x2d1a                	BZ	_00136_DS_
+002d14   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002d16   0e01     movlw	0x1                	MOVLW	0x01
+002d18   d021     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00136_DS_:
+                                           ;	.line	52; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else return (0);
+002d1a   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002d1c   6ae8     clrf	0xe8, 0             	CLRF	WREG
+002d1e   d01e     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00138_DS_:
+                                           ;	.line	54; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 2: if ((PORTA & mask[input])!=0) return (1);
+002d20   6a02     clrf	0x2, 0              	CLRF	r0x02
+002d22   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002d24   6802     setf	0x2, 0              	SETF	r0x02
+002d26   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002d28   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002d2a   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002d2c   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002d2e   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002d30   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002d32   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+002d34   fff6
+002d36   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+002d38   fff7
+002d3a   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+002d3c   fff8
+002d3e   0009     tblrd	*+                 	TBLRD*+	
+002d40   cff5     movff	0xff5, 0           	MOVFF	TABLAT, r0x00
+002d42   f000
+002d44   5080     movf	0x80, 0, 0          	MOVF	_PORTA, W
+002d46   1600     andwf	0, 0x1, 0          	ANDWF	r0x00, F
+002d48   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002d4a   e003     bz	0x2d52                	BZ	_00140_DS_
+002d4c   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002d4e   0e01     movlw	0x1                	MOVLW	0x01
+002d50   d005     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00140_DS_:
+                                           ;	.line	55; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else return (0);
+002d52   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002d54   6ae8     clrf	0xe8, 0             	CLRF	WREG
+002d56   d002     bra	0x2d5c               	BRA	_00143_DS_
+                                           _00142_DS_:
+                                           ;	.line	66; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	return (0);
+002d58   6af3     clrf	0xf3, 0             	CLRF	PRODL
+002d5a   6ae8     clrf	0xe8, 0             	CLRF	WREG
+                                           _00143_DS_:
+002d5c   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+002d5e   f004
+002d60   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+002d62   f003
+002d64   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+002d66   f002
+002d68   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002d6a   f001
+002d6c   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002d6e   f000
+002d70   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002d72   ffd9
+002d74   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block
+                                           S_main__digitalwrite	code
+                                           _digitalwrite:
+                                           ;	.line	20; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	void digitalwrite(int output,int state)
+002a18   cfd9     movff	0xfd9, 0xfe5       	MOVFF	FSR2L, POSTDEC1
+002a1a   ffe5
+002a1c   cfe1     movff	0xfe1, 0xfd9       	MOVFF	FSR1L, FSR2L
+002a1e   ffd9
+002a20   c000     movff	0, 0xfe5           	MOVFF	r0x00, POSTDEC1
+002a22   ffe5
+002a24   c001     movff	0x1, 0xfe5         	MOVFF	r0x01, POSTDEC1
+002a26   ffe5
+002a28   c002     movff	0x2, 0xfe5         	MOVFF	r0x02, POSTDEC1
+002a2a   ffe5
+002a2c   c003     movff	0x3, 0xfe5         	MOVFF	r0x03, POSTDEC1
+002a2e   ffe5
+002a30   c004     movff	0x4, 0xfe5         	MOVFF	r0x04, POSTDEC1
+002a32   ffe5
+002a34   c005     movff	0x5, 0xfe5         	MOVFF	r0x05, POSTDEC1
+002a36   ffe5
+002a38   c006     movff	0x6, 0xfe5         	MOVFF	r0x06, POSTDEC1
+002a3a   ffe5
+002a3c   0e02     movlw	0x2                	MOVLW	0x02
+002a3e   cfdb     movff	0xfdb, 0           	MOVFF	PLUSW2, r0x00
+002a40   f000
+002a42   0e03     movlw	0x3                	MOVLW	0x03
+002a44   cfdb     movff	0xfdb, 0x1         	MOVFF	PLUSW2, r0x01
+002a46   f001
+002a48   0e04     movlw	0x4                	MOVLW	0x04
+002a4a   cfdb     movff	0xfdb, 0x2         	MOVFF	PLUSW2, r0x02
+002a4c   f002
+002a4e   0e05     movlw	0x5                	MOVLW	0x05
+002a50   cfdb     movff	0xfdb, 0x3         	MOVFF	PLUSW2, r0x03
+002a52   f003
+                                           ;	.line	22; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	switch (port[output])
+002a54   0efe     movlw	0xfe               	MOVLW	LOW(_port)
+002a56   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002a58   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002a5a   0e27     movlw	0x27               	MOVLW	HIGH(_port)
+002a5c   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002a5e   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002a60   6a06     clrf	0x6, 0              	CLRF	r0x06
+002a62   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002a64   6806     setf	0x6, 0              	SETF	r0x06
+002a66   0e00     movlw	0                  	MOVLW	UPPER(_port)
+002a68   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002a6a   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002a6c   fff6
+002a6e   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002a70   fff7
+002a72   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002a74   fff8
+002a76   0009     tblrd	*+                 	TBLRD*+	
+002a78   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002a7a   f004
+002a7c   0e03     movlw	0x3                	MOVLW	0x03
+002a7e   5c04     subwf	0x4, 0, 0          	SUBWF	r0x04, W
+002a80   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002a82   d0b4     bra	0x2bec               	BRA	_00118_DS_
+002a84   c007     movff	0x7, 0xfe5         	MOVFF	r0x07, POSTDEC1
+002a86   ffe5
+002a88   c008     movff	0x8, 0xfe5         	MOVFF	r0x08, POSTDEC1
+002a8a   ffe5
+002a8c   6a08     clrf	0x8, 0              	CLRF	r0x08
+002a8e   3404     rlcf	0x4, 0, 0           	RLCF	r0x04, W
+002a90   3608     rlcf	0x8, 0x1, 0         	RLCF	r0x08, F
+002a92   34e8     rlcf	0xe8, 0, 0          	RLCF	WREG, W
+002a94   3608     rlcf	0x8, 0x1, 0         	RLCF	r0x08, F
+002a96   0bfc     andlw	0xfc               	ANDLW	0xfc
+002a98   6e07     movwf	0x7, 0             	MOVWF	r0x07
+002a9a   0e00     movlw	0                  	MOVLW	UPPER(_00125_DS_)
+002a9c   6efb     movwf	0xfb, 0            	MOVWF	PCLATU
+002a9e   0e2a     movlw	0x2a               	MOVLW	HIGH(_00125_DS_)
+002aa0   6efa     movwf	0xfa, 0            	MOVWF	PCLATH
+002aa2   0eba     movlw	0xba               	MOVLW	LOW(_00125_DS_)
+002aa4   2607     addwf	0x7, 0x1, 0        	ADDWF	r0x07, F
+002aa6   5008     movf	0x8, 0, 0           	MOVF	r0x08, W
+002aa8   22fa     addwfc	0xfa, 0x1, 0      	ADDWFC	PCLATH, F
+002aaa   b0d8     btfsc	0xd8, 0, 0         	BTFSC	STATUS, 0
+002aac   2afb     incf	0xfb, 0x1, 0        	INCF	PCLATU, F
+002aae   5007     movf	0x7, 0, 0           	MOVF	r0x07, W
+002ab0   cfe4     movff	0xfe4, 0x8         	MOVFF	PREINC1, r0x08
+002ab2   f008
+002ab4   cfe4     movff	0xfe4, 0x7         	MOVFF	PREINC1, r0x07
+002ab6   f007
+002ab8   6ef9     movwf	0xf9, 0            	MOVWF	PCL
+                                           _00125_DS_:
+002aba   ef63     goto	0x2ac6              	GOTO	_00105_DS_
+002abc   f015
+002abe   ef95     goto	0x2b2a              	GOTO	_00109_DS_
+002ac0   f015
+002ac2   efc7     goto	0x2b8e              	GOTO	_00113_DS_
+002ac4   f015
+                                           _00105_DS_:
+                                           ;	.line	24; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 0: if (state) PORTB=PORTB | mask[output]; 
+002ac6   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002ac8   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+002aca   e017     bz	0x2afa                	BZ	_00107_DS_
+002acc   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002ace   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002ad0   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002ad2   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002ad4   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002ad6   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002ad8   6a06     clrf	0x6, 0              	CLRF	r0x06
+002ada   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002adc   6806     setf	0x6, 0              	SETF	r0x06
+002ade   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002ae0   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002ae2   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002ae4   fff6
+002ae6   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002ae8   fff7
+002aea   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002aec   fff8
+002aee   0009     tblrd	*+                 	TBLRD*+	
+002af0   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002af2   f004
+002af4   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002af6   1281     iorwf	0x81, 0x1, 0       	IORWF	_PORTB, F
+002af8   d079     bra	0x2bec               	BRA	_00118_DS_
+                                           _00107_DS_:
+                                           ;	.line	25; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else PORTB=PORTB & (255-mask[output]);
+002afa   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002afc   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002afe   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002b00   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002b02   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002b04   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002b06   6a06     clrf	0x6, 0              	CLRF	r0x06
+002b08   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002b0a   6806     setf	0x6, 0              	SETF	r0x06
+002b0c   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002b0e   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002b10   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002b12   fff6
+002b14   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002b16   fff7
+002b18   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002b1a   fff8
+002b1c   0009     tblrd	*+                 	TBLRD*+	
+002b1e   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002b20   f004
+002b22   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002b24   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x04
+                                           ; #	MOVF	r0x04, W
+002b26   1681     andwf	0x81, 0x1, 0       	ANDWF	_PORTB, F
+                                           ;	.line	26; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	break;
+002b28   d061     bra	0x2bec               	BRA	_00118_DS_
+                                           _00109_DS_:
+                                           ;	.line	27; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 1: if (state) PORTC=PORTC | mask[output];
+002b2a   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002b2c   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+002b2e   e017     bz	0x2b5e                	BZ	_00111_DS_
+002b30   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002b32   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002b34   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002b36   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002b38   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002b3a   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002b3c   6a06     clrf	0x6, 0              	CLRF	r0x06
+002b3e   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002b40   6806     setf	0x6, 0              	SETF	r0x06
+002b42   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002b44   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002b46   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002b48   fff6
+002b4a   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002b4c   fff7
+002b4e   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002b50   fff8
+002b52   0009     tblrd	*+                 	TBLRD*+	
+002b54   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002b56   f004
+002b58   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002b5a   1282     iorwf	0x82, 0x1, 0       	IORWF	_PORTC, F
+002b5c   d047     bra	0x2bec               	BRA	_00118_DS_
+                                           _00111_DS_:
+                                           ;	.line	28; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else PORTC=PORTC & (255-mask[output]);
+002b5e   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002b60   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002b62   6e04     movwf	0x4, 0             	MOVWF	r0x04
+002b64   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002b66   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002b68   6e05     movwf	0x5, 0             	MOVWF	r0x05
+002b6a   6a06     clrf	0x6, 0              	CLRF	r0x06
+002b6c   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002b6e   6806     setf	0x6, 0              	SETF	r0x06
+002b70   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002b72   2206     addwfc	0x6, 0x1, 0       	ADDWFC	r0x06, F
+002b74   c004     movff	0x4, 0xff6         	MOVFF	r0x04, TBLPTRL
+002b76   fff6
+002b78   c005     movff	0x5, 0xff7         	MOVFF	r0x05, TBLPTRH
+002b7a   fff7
+002b7c   c006     movff	0x6, 0xff8         	MOVFF	r0x06, TBLPTRU
+002b7e   fff8
+002b80   0009     tblrd	*+                 	TBLRD*+	
+002b82   cff5     movff	0xff5, 0x4         	MOVFF	TABLAT, r0x04
+002b84   f004
+002b86   5004     movf	0x4, 0, 0           	MOVF	r0x04, W
+002b88   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x04
+                                           ; #	MOVF	r0x04, W
+002b8a   1682     andwf	0x82, 0x1, 0       	ANDWF	_PORTC, F
+                                           ;	.line	29; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	break;
+002b8c   d02f     bra	0x2bec               	BRA	_00118_DS_
+                                           _00113_DS_:
+                                           ;	.line	30; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	case 2: if (state) PORTA=PORTA | mask[output];
+002b8e   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002b90   1003     iorwf	0x3, 0, 0          	IORWF	r0x03, W
+002b92   e017     bz	0x2bc2                	BZ	_00115_DS_
+002b94   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002b96   2400     addwf	0, 0, 0            	ADDWF	r0x00, W
+002b98   6e02     movwf	0x2, 0             	MOVWF	r0x02
+002b9a   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002b9c   2001     addwfc	0x1, 0, 0         	ADDWFC	r0x01, W
+002b9e   6e03     movwf	0x3, 0             	MOVWF	r0x03
+002ba0   6a04     clrf	0x4, 0              	CLRF	r0x04
+002ba2   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002ba4   6804     setf	0x4, 0              	SETF	r0x04
+002ba6   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002ba8   2204     addwfc	0x4, 0x1, 0       	ADDWFC	r0x04, F
+002baa   c002     movff	0x2, 0xff6         	MOVFF	r0x02, TBLPTRL
+002bac   fff6
+002bae   c003     movff	0x3, 0xff7         	MOVFF	r0x03, TBLPTRH
+002bb0   fff7
+002bb2   c004     movff	0x4, 0xff8         	MOVFF	r0x04, TBLPTRU
+002bb4   fff8
+002bb6   0009     tblrd	*+                 	TBLRD*+	
+002bb8   cff5     movff	0xff5, 0x2         	MOVFF	TABLAT, r0x02
+002bba   f002
+002bbc   5002     movf	0x2, 0, 0           	MOVF	r0x02, W
+002bbe   1280     iorwf	0x80, 0x1, 0       	IORWF	_PORTA, F
+002bc0   d015     bra	0x2bec               	BRA	_00118_DS_
+                                           _00115_DS_:
+                                           ;	.line	31; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	else PORTA=PORTA & (255-mask[output]);
+002bc2   6a02     clrf	0x2, 0              	CLRF	r0x02
+002bc4   be01     btfsc	0x1, 0x7, 0        	BTFSC	r0x01, 7
+002bc6   6802     setf	0x2, 0              	SETF	r0x02
+002bc8   0eec     movlw	0xec               	MOVLW	LOW(_mask)
+002bca   2600     addwf	0, 0x1, 0          	ADDWF	r0x00, F
+002bcc   0e27     movlw	0x27               	MOVLW	HIGH(_mask)
+002bce   2201     addwfc	0x1, 0x1, 0       	ADDWFC	r0x01, F
+002bd0   0e00     movlw	0                  	MOVLW	UPPER(_mask)
+002bd2   2202     addwfc	0x2, 0x1, 0       	ADDWFC	r0x02, F
+002bd4   c000     movff	0, 0xff6           	MOVFF	r0x00, TBLPTRL
+002bd6   fff6
+002bd8   c001     movff	0x1, 0xff7         	MOVFF	r0x01, TBLPTRH
+002bda   fff7
+002bdc   c002     movff	0x2, 0xff8         	MOVFF	r0x02, TBLPTRU
+002bde   fff8
+002be0   0009     tblrd	*+                 	TBLRD*+	
+002be2   cff5     movff	0xff5, 0           	MOVFF	TABLAT, r0x00
+002be4   f000
+002be6   5000     movf	0, 0, 0             	MOVF	r0x00, W
+002be8   08ff     sublw	0xff               	SUBLW	0xff
+                                           ; #	MOVWF	r0x00
+                                           ; #	MOVF	r0x00, W
+002bea   1680     andwf	0x80, 0x1, 0       	ANDWF	_PORTA, F
+                                           _00118_DS_:
+                                           ;	.line	41; /home/moteado/src/gnu/pinguino_beta9-05_linux/tools/bin/../share/sdcc/include/pic16/digitalw.c	}
+002bec   cfe4     movff	0xfe4, 0x6         	MOVFF	PREINC1, r0x06
+002bee   f006
+002bf0   cfe4     movff	0xfe4, 0x5         	MOVFF	PREINC1, r0x05
+002bf2   f005
+002bf4   cfe4     movff	0xfe4, 0x4         	MOVFF	PREINC1, r0x04
+002bf6   f004
+002bf8   cfe4     movff	0xfe4, 0x3         	MOVFF	PREINC1, r0x03
+002bfa   f003
+002bfc   cfe4     movff	0xfe4, 0x2         	MOVFF	PREINC1, r0x02
+002bfe   f002
+002c00   cfe4     movff	0xfe4, 0x1         	MOVFF	PREINC1, r0x01
+002c02   f001
+002c04   cfe4     movff	0xfe4, 0           	MOVFF	PREINC1, r0x00
+002c06   f000
+002c08   cfe4     movff	0xfe4, 0xfd9       	MOVFF	PREINC1, FSR2L
+002c0a   ffd9
+002c0c   0012     return	0                 	RETURN	
+                                           
+                                           ; ; Starting pCode block for Ival
+                                           	code
+                                           _mask:
+0027ec   0201     mulwf	0x1, 0             	DB	0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x40, 0x80, 0x01, 0x02
+0027ee   0804     sublw	0x4                
+0027f0   2010     addwfc	0x10, 0, 0        
+0027f2   8040     bsf	0x40, 0, 0           
+0027f4   8040     bsf	0x40, 0, 0           
+0027f6   0201     mulwf	0x1, 0             
+0027f8   0104     movlb	0x4                	DB	0x04, 0x01, 0x02, 0x04, 0x08, 0x20
+0027fa   0402     decf	0x2, 0, 0           
+0027fc   2008     addwfc	0x8, 0, 0         
+                                           ; ; Starting pCode block for Ival
+                                           _port:
+0027fe   0000     nop                      	DB	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x01
+002800   0000     nop                      
+002802   0000     nop                      
+002804   0000     nop                      
+002806   0101     movlb	0x1                
+002808   0101     movlb	0x1                
+00280a   0201     mulwf	0x1, 0             	DB	0x01, 0x02, 0x02, 0x02, 0x02, 0x02
+00280c   0202     mulwf	0x2, 0             
+00280e   0202     mulwf	0x2, 0             
+                                           ; ; Starting pCode block for Ival
+                                           _servomasks:
+002810   0201     mulwf	0x1, 0             	DB	0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x40, 0x80, 0x01, 0x02
+002812   0804     sublw	0x4                
+002814   2010     addwfc	0x10, 0, 0        
+002816   8040     bsf	0x40, 0, 0           
+002818   8040     bsf	0x40, 0, 0           
+00281a   0201     mulwf	0x1, 0             
+00281c   0104     movlb	0x4                	DB	0x04, 0x01, 0x02, 0x04, 0x08, 0x20
+00281e   0402     decf	0x2, 0, 0           
+002820   2008     addwfc	0x8, 0, 0         
+                                           
+                                           
+                                           ; Statistics:
+                                           ; code size:	 4444 (0x115c) bytes ( 3.39%)
+                                           ;           	 2222 (0x08ae) words
+                                           ; udata size:	   95 (0x005f) bytes ( 5.30%)
+                                           ; access size:	   10 (0x000a) bytes
+                                           
+                                           
+                                           	end
