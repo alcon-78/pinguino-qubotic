@@ -1,20 +1,23 @@
-Pinguino 
-========
-versión qubotic
----------------
+Pinguino (versión qubotic)
+==========================
 
-dependencies: libusb, python 2.5 y wxpython 2.8
+**dependencies:** libusb, python 2.5 y wxpython 2.8
 
 instalación
 -----------
 
+para kernel 2.6 o superiores instalar y reiniciar la maquina
+
 `sudo cp rules_nuevas/* /etc/udev/rules.d/`
+`chmod 777 tools/bin/docker`
+
+en para kernel más viejos
+
+`sudo cp rules_viejas/* /etc/udev/rules.d/`
 `chmod 777 tools/bin/docker`
 
 instalación del bootloader
 --------------------------
-
-Requiere un circuito especifico 
 
 `tools/bin/docker -v 04d8 write bootloaderV2.12.hex` (esto no fue probado)
 
