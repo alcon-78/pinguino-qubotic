@@ -1,0 +1,13 @@
+
+Pinguino IDE Installation & Use Instructions
+********************************************     
+
+Copyright (C) 2008 Jean-Pierre MANDON <jp.mandon@gmail.com>
+
+This file is free documentation; you have unlimited permission to copy,
+distribute and modify it.
+
+Pinguino is an arduino like environment built in Python.
+It is a complete package with compiler, assembler, linker and bootloader, nothing to install.
+Pinguino is compatible with arduino/wiring langage.
+
