@@ -1,6 +1,8 @@
 Pinguino (versión qubotic)
 ==========================
 
+![qubotic](https://raw.github.com/b4zz4/pinguino-qubotic/master/theme/pinguinodesign.png)
+
 **dependencies:** libusb, python 2.5 y wxpython 2.8
 
 instalación
